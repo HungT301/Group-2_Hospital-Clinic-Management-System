@@ -19,7 +19,7 @@ public:
 
 	void nhap();
 	void in() const;
-	double tinhLuong() const = 0;
+	double tinhLuong() const;
 
 	string getID() const;
 };
