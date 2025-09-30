@@ -14,9 +14,9 @@ public:
 	Doctor();
 	Doctor(string, string, string, string, int, double, string , int, string);
 
-	void nhap() override;
-	void in() const override;
-	double tinhLuong() const override;
+	void nhap();
+	void in() const;
+	double tinhLuong() const;
 };
 
 #endif

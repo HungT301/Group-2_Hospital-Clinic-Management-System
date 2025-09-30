@@ -17,9 +17,9 @@ public:
 	Staff();
 	Staff(string, string, string, string, int, double);
 
-	virtual void nhap();
-	virtual void in() const;
-	virtual double tinhLuong() const = 0;
+	void nhap();
+	void in() const;
+	double tinhLuong() const = 0;
 
 	string getID() const;
 };

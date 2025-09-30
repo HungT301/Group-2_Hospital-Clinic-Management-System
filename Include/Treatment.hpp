@@ -19,7 +19,7 @@ public:
 	virtual void nhap();
 	virtual void in() const;
 
-	virtual void tinhChiPhi() const = 0;
+	virtual void tinhChiPhi() const;
 };
 
 #endif
