@@ -15,7 +15,7 @@ Khi chạy sẽ hiện ra 1 menu lựa chọn (lựa chọn sẽ tùy người d
 0. Thoát
 
 Sau nó tùy vào lựa chọn của người dùng mà hiển thị chi tiết từng phần. Ví dụ:
-Người dùng nhập vào số 1, code sẽ hiển thị tiếp
+Người dùng nhập vào số 2, code sẽ hiển thị tiếp
 
 -------BAC_SI---------
 1. Hiển thị thông tin bác sĩ
