@@ -10,7 +10,7 @@ Nurse :: Nurse(){
   caTruc = ""; phongTruc "";
 }
 
-Nurse :: void nhap(){
+void Nurse :: nhap(){
   Staff::nhap();
   cout << "enter the on-call:";
   cin.ignore();
@@ -18,8 +18,9 @@ Nurse :: void nhap(){
   cout << "enter thr duty room:"; cin >> phongTruc;
 }
 
-Nurse :: void in() const {
+void Nurse :: in() const {
   Staff :: in();
   cout << caTruc << " " << phongTruc << "\n";
 }
+
 
