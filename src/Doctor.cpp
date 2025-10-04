@@ -1,5 +1,6 @@
 #include "Doctor.hpp"
 #include <iostream>
+#include <string>
 using namespace std;
 
 Doctor::Doctor() : Staff() {
@@ -43,3 +44,4 @@ double Doctor::tinhLuong() const {
     double luongCoBan = 8000000; 
     return luongCoBan + namKinhNghiem * 200000 + bangCap * 500000;
 }
+
