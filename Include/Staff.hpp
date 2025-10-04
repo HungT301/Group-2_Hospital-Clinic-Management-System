@@ -7,21 +7,18 @@ using namespace std:
 class Staff {
 protected:
 	string id;
-	string ten;
-	string ngaySinh;
-	string gioiTinh;
-	int sdt;
-	double luong;
+	string name;
+	string DOB;
+	string gender;
+	int phone;
 
 public:
-	Staff();
-	Staff(string, string, string, string, int, double);
+	Staff(); //mac dinh cac tham so =0
 
 	void nhap();
 	void in() const;
-	double tinhLuong() const;
 
-	string getID() const;
+	string getID() const; // lay ID de tim kiem
 };
 
 #endif
