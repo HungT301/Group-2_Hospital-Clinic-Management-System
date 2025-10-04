@@ -1,34 +1,25 @@
+#include "Nurse.hpp"
+
 #include <iotream>
 #include <string>
 using namespace std;
 
-class Nurse{
-  private:
-    string name, id, catruc, phongtruc;
-  public:
-    Nurse();
-    void in();
-    void out();
-    ~Nurse();
-};
-
-Nurse::Nurse(){
-  name = ""; id  = ""; catruc = ""; phongtruc = "";
+Nurse :: Nurse(){
+  id = ""; name = ""; DOB =""; gender = "";
+  phone=0;
+  caTruc = ""; phongTruc "";
 }
 
-Nurse::~Nurse(){
-//code
+Nurse :: void nhap(){
+  Staff::nhap();
+  cout << "enter the on-call:";
+  cin.ignore();
+  cin >> caTruc;
+  cout << "enter thr duty room:"; cin >> phongTruc;
 }
 
-void Nurse::in(){
-// code block
+Nurse :: void in() const {
+  Staff :: in();
+  cout << caTruc << " " << phongTruc << "\n";
 }
 
-void Nurse::out{
-//code block
-}
-
-int main(){
-//copde block
-  return 0;
-}
