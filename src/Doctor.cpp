@@ -11,8 +11,7 @@ Doctor::Doctor() {
     bangCap = 0;
 }
 
-Doctor::Doctor(string id, string name, string DOB, string gender, int phone,
-               string chuyenKhoa, int namKinhNghiem, int bangCap) {
+Doctor::Doctor(string id, string name, string DOB, string gender, int phone, string chuyenKhoa, int namKinhNghiem, int bangCap) {
     this->id = id;
     this->name = name;
     this->DOB = DOB;
@@ -43,3 +42,4 @@ double Doctor::tinhLuong() const {
     double luongCoBan = 8000000;
     return luongCoBan + namKinhNghiem * 200000 + bangCap * 500000;
 }
+
