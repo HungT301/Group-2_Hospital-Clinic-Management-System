@@ -43,3 +43,4 @@ double Doctor::tinhLuong() const {
     return luongCoBan + namKinhNghiem * 200000 + bangCap * 500000;
 }
 
+
