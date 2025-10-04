@@ -2,6 +2,7 @@
 #define NURSE_HPP
 
 #include <Staff.hpp>
+#include <string>
 using namespace std;
 
 class Nurse : public Staff {
@@ -10,12 +11,11 @@ private:
 	string phongTruc;
 
 public:
-	Nurse();
-	Nurse(string, string, string, string, int, double, string, string);
+	Nurse(); // mac dinh bang 0
 
 	void nhap();
 	void in() const;
-	double tinhLuong() const;
+
 };
 
 #endif
