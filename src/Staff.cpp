@@ -13,10 +13,11 @@ Staff :: void nhap(){
   cout << "enter the phone number:"; cin >> phone;
 }
 
-Staff : void in() const{
+void Staff :: in() const{
   cout << id << " " << name << " " << DOB << " " << gender << " " << phone << "\n";
 }
 
-Staff : string getID() const{
+string Staff :: getID() const{
   return this->id;
 }
+
