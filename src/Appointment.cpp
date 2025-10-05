@@ -7,12 +7,18 @@ Appointment::Appointment() {
 	id = patientId = doctorId = thoiGian = "";
 }
 
+Appointment::Appointment(string id, string patientId, string doctorId, string thoiGian) {
+	this->id = id;
+	this->patientId = patientId;
+	this->doctorId = doctorId;
+	this->thoiGian = thoiGian;
+}
+
 void Appointment::nhap() {
 	cout << "Enter appointment id: "; cin >> id;
 	cout << "Enter patient id: "; cin >> patientId;
 	cout << "Enter doctor id: "; cin >> doctorId;
-	cin.ignore();
-	cout << "Enter time: "; getline(cin, thoiGian);
+	cout << "Enter time: "; cin >> thoiGian;
 }
 
 void Appointment::in() const {

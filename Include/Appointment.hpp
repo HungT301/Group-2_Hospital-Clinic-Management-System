@@ -13,10 +13,11 @@ protected:
 
 public:	
 	Appointment();
-	Appointment(string, string, string, string);
 
-	void nhap();
-	void in() const;
+	virtual void nhap();
+	virtual void in() const;
+
+	virtual ~Appointment() {}
 };
 
 #endif

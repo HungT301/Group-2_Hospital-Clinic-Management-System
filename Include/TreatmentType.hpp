@@ -14,9 +14,9 @@ public:
     Medication();
     Medication(string, string, string, string, double, int, double);
 
-    void nhap();
-    void in() const;
-    void tinhChiPhi() const;
+    void nhap() override;
+    void in() const override;
+    void tinhChiPhi() const override;
 };
 
 // ---------------- Surgery ----------------
@@ -29,9 +29,9 @@ public:
     Surgery();
     Surgery(string, string, string, string, double, double, double);
 
-    void nhap();
-    void in() const;
-    void tinhChiPhi() const;
+    void nhap() override;
+    void in() const override;
+    void tinhChiPhi() const override;
 };
 
 // ---------------- Therapy ----------------
@@ -44,9 +44,9 @@ public:
     Therapy();
     Therapy(string, string, string, string, double, int, double);
 
-    void nhap();
-    void in() const;
-    void tinhChiPhi() const;
+    void nhap() override;
+    void in() const override;
+    void tinhChiPhi() const override;
 };
 
 #endif
