@@ -18,8 +18,9 @@ public:
 
 	virtual void nhap();
 	virtual void in() const;
-
 	virtual void tinhChiPhi() const;
+
+	virtual ~Treatment() {}
 };
 
 #endif
