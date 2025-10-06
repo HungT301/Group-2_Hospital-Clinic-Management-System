@@ -2,7 +2,7 @@
 #define STAFF_HPP
 
 #include <string>
-using namespace std:
+using namespace std;
 
 class Staff {
 protected:

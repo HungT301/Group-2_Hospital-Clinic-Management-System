@@ -1,17 +1,10 @@
-#include "Appointment.hpp"
+#include "../include/Appointment.hpp"
 
 #include <iostream>
 using namespace std;
 
 Appointment::Appointment() {
 	id = patientId = doctorId = thoiGian = "";
-}
-
-Appointment::Appointment(string id, string patientId, string doctorId, string thoiGian) {
-	this->id = id;
-	this->patientId = patientId;
-	this->doctorId = doctorId;
-	this->thoiGian = thoiGian;
 }
 
 void Appointment::nhap() {

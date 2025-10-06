@@ -8,7 +8,7 @@ Doctor::Doctor() {
     phone = 0;
     chuyenKhoa = ""; 
     namKinhNghiem = 0;
-    bangCap = 0;
+    bangCap = "";
 }
 
 Doctor::Doctor(string id, string name, string DOB, string gender, int phone, string chuyenKhoa, int namKinhNghiem, int bangCap) {

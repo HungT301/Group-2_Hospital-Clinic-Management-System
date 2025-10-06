@@ -36,7 +36,7 @@ class TherapyAppointment : public Appointment {
 private:
     string therapyType;      
     int sessionCount;         
-    string therapist;         
+    string doctorName;         
 
 public:
     TherapyAppointment();
