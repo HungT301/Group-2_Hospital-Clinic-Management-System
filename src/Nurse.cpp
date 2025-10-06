@@ -1,6 +1,6 @@
 #include "Nurse.hpp"
 
-#include <iotream>
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -22,5 +22,6 @@ void Nurse :: in() const {
   Staff :: in();
   cout << caTruc << " " << phongTruc << "\n";
 }
+
 
 
