@@ -5,15 +5,15 @@ using namespace std;
 
 Patient::Patient() {}
 
-Patient::Patient(string id, string ten, string ngaysinh, string sdt,
-                 string gioiTinh, string trieuChung, string chanDoan) {
+Patient::Patient(string id, string name, string DOB, string phone,
+                 string gender, string symptoms, string diagnosis) {
     this->id = id;
-    this->ten = ten;
-    this->ngaysinh = ngaysinh;
-    this->sdt = sdt;
-    this->gioiTinh = gioiTinh;
-    this->trieuChung = trieuChung;
-    this->chanDoan = chanDoan;
+    this->name = name;
+    this->DOB = DOB;
+    this->phone = phone;
+    this->gender = gender;
+    this->symptoms = symptoms;
+    this->diagnosis = diagnosis;
 }
 
 void Patient::nhap() {
@@ -21,33 +21,33 @@ void Patient::nhap() {
     getline(cin, id);
 
     cout << "Enter name: ";
-    getline(cin, ten);
+    getline(cin, name);
 
     cout << "Enter date of birth: ";
-    getline(cin, ngaysinh);
+    getline(cin, DOB);
 
-    cout << "Enter phone number: ";
-    getline(cin, sdt);
+    cout << "Enter phone: ";
+    getline(cin, phone);
 
     cout << "Enter gender: ";
-    getline(cin, gioiTinh);
+    getline(cin, gender);
 
     cout << "Enter symptoms: ";
-    getline(cin, trieuChung);
+    getline(cin, symptoms);
 
     cout << "Enter diagnosis: ";
-    getline(cin, chanDoan);
+    getline(cin, diagnosis);
 }
 
 void Patient::in() const {
     cout << "\n--- PATIENT INFORMATION ---\n";
     cout << "ID: " << id << endl;
-    cout << "Name: " << ten << endl;
-    cout << "Date of birth: " << ngaysinh << endl;
-    cout << "Phone: " << sdt << endl;
-    cout << "Gender: " << gioiTinh << endl;
-    cout << "Symptoms: " << trieuChung << endl;
-    cout << "Diagnosis: " << chanDoan << endl;
+    cout << "Name: " << name << endl;
+    cout << "Date of birth: " << DOB << endl;
+    cout << "Phone: " << phone << endl;
+    cout << "Gender: " << gender << endl;
+    cout << "Symptoms: " << symptoms << endl;
+    cout << "Diagnosis: " << diagnosis << endl;
 }
 
 string Patient::getID() const {
