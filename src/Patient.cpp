@@ -1,6 +1,6 @@
 #include "Patient.hpp"
-#include <iostream>
 
+#include <iostream>
 using namespace std;
 
 Patient::Patient() {}
@@ -28,7 +28,7 @@ void Patient::nhap() {
     getline(cin, diagnosis);
 }
 
-void Patient::in() const {
+void Patient::in() {
     cout << "ID: " << id << endl;
     cout << "Name: " << name << endl;
     cout << "Date of birth: " << DOB << endl;
