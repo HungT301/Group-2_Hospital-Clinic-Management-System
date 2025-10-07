@@ -17,8 +17,5 @@ Person::nhap() {
 }
 
 Person::in() {
-	cout << "Name: " << name << endl;
-	cout << "Date of birth " << DOB << endl;
-	cout << "Gender: " << gender << endl;
-	cout << "Phone: " << phone << endl;
+	cout << name << " " << DOB << " " << gender << " " << phone;
 }

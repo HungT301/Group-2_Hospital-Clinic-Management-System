@@ -5,9 +5,7 @@
 #include <string>
 using namespace std;
 
-Nurse :: Nurse(){
- // cái này constructor t chưa biết sửa như nào m sửa cho t  nhá!!!
-}
+Nurse :: Nurse(){}
 
 void Nurse :: nhap(){
   Staff::nhap();
@@ -39,6 +37,7 @@ void Nurse :: nhap(){
 
 void Nurse :: in() const {
   Staff :: in();
+  cout << endl;
   cout << "Cac ca lam:\n";
   for (const string& s : shifts){
     cout << "  - " << s << endl;

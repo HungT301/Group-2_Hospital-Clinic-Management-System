@@ -12,11 +12,11 @@ void Staff::nhap() {
 }
 
 void Staff::in() const {
-    cout << "ID: " << staffID << endl;
+    cout << staffID << " ";
     Person::in();
 }
 
 string Staff::getID() const {
-  return staffID;
+    return staffID;
 }
 
