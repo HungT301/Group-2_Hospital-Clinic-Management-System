@@ -5,17 +5,6 @@ using namespace std;
 
 Patient::Patient() {}
 
-Patient::Patient(string id, string name, string DOB, string phone,
-                 string gender, string symptoms, string diagnosis) {
-    this->id = id;
-    this->name = name;
-    this->DOB = DOB;
-    this->phone = phone;
-    this->gender = gender;
-    this->symptoms = symptoms;
-    this->diagnosis = diagnosis;
-}
-
 void Patient::nhap() {
     cout << "Enter patient ID: ";
     getline(cin, id);
