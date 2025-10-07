@@ -7,16 +7,15 @@ using namespace std;
 class Patient {
 private:
 	string id;
-	string ten;
-	string ngaysinh;
-	string sdt;
-	string gioiTinh;
-	string trieuTrung;
-	string chanDoan;
+	string name;
+	string DOB;
+	string Phone;
+	string gender;
+	string symptom;
+	string diagnose;
 
 public:
 	Patient();
-	Patient(string, string, string, string, string, string, string);
 
 	void nhap();
 	void in() const;
