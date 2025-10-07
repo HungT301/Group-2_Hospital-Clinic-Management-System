@@ -16,6 +16,6 @@ void Person::nhap() {
 	getline(cin, phone);
 }
 
-void Person::in() {
+void Person::in() const {
 	cout << name << " " << DOB << " " << gender << " " << phone;
 }

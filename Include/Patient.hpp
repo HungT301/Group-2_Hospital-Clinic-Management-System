@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-class Patient {
+class Patient : public Person {
 private:
 	string patientID;
 	string symptom;

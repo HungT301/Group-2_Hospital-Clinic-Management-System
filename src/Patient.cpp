@@ -15,7 +15,9 @@ void Patient::nhap() {
 
 void Patient::in() const {
     Person::in();
-    cout << " " << symptom << " " << diagnose << "\n";
+    cout << " " << symptom << " " << diagnose << endl;
 }
 
-
+string getPatientID() const {
+    return patientID;
+}
