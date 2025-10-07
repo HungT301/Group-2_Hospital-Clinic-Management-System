@@ -4,10 +4,8 @@ using namespace std;
 
 Medication::Medication() {}
 
-Medication::Medication(string id, string patientId, string doctorId, string moTa,
-                       double chiPhi, int soLuong, double giaMoiDonVi)
-    : Treatment(id, patientId, doctorId, moTa, chiPhi),
-      soLuong(soLuong), giaMoiDonVi(giaMoiDonVi) {}
+Medication::Medication(string id, string patientId, string doctorId, string moTa, double chiPhi, int soLuong, double giaMoiDonVi)
+: Treatment(id, patientId, doctorId, moTa, chiPhi), soLuong(soLuong), giaMoiDonVi(giaMoiDonVi) {}
 
 void Medication::nhap() {
     Treatment::nhap();
@@ -31,10 +29,8 @@ void Medication::tinhChiPhi() const {
 
 Surgery::Surgery() {}
 
-Surgery::Surgery(string id, string patientId, string doctorId, string moTa,
-                 double chiPhi, double phiBacSi, double chiPhiThietBi)
-    : Treatment(id, patientId, doctorId, moTa, chiPhi),
-      phiBacSi(phiBacSi), chiPhiThietBi(chiPhiThietBi) {}
+Surgery::Surgery(string id, string patientId, string doctorId, string moTa, double chiPhi, double phiBacSi, double chiPhiThietBi)
+: Treatment(id, patientId, doctorId, moTa, chiPhi),phiBacSi(phiBacSi), chiPhiThietBi(chiPhiThietBi) {}
 
 void Surgery::nhap() {
     Treatment::nhap();
@@ -58,10 +54,8 @@ void Surgery::tinhChiPhi() const {
 
 Therapy::Therapy() {}
 
-Therapy::Therapy(string id, string patientId, string doctorId, string moTa,
-                 double chiPhi, int soBuoi, double giaMoiBuoi)
-    : Treatment(id, patientId, doctorId, moTa, chiPhi),
-      soBuoi(soBuoi), giaMoiBuoi(giaMoiBuoi) {}
+Therapy::Therapy(string id, string patientId, string doctorId, string moTa, double chiPhi, int soBuoi, double giaMoiBuoi)
+: Treatment(id, patientId, doctorId, moTa, chiPhi), soBuoi(soBuoi), giaMoiBuoi(giaMoiBuoi) {}
 
 void Therapy::nhap() {
     Treatment::nhap();
@@ -82,3 +76,4 @@ void Therapy::tinhChiPhi() const {
     double tong = chiPhi + soBuoi * giaMoiBuoi;
     cout << "Tong chi phi tri lieu: " << tong << endl;
 }
+
