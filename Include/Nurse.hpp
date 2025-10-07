@@ -7,8 +7,8 @@ using namespace std;
 
 class Nurse : public Staff {
 private:
-	string caTruc;
-	string phongTruc;
+	string shift; // ca trực
+	string oncallroom; // phòng trực
 
 public:
 	Nurse(); // mac dinh bang 0
