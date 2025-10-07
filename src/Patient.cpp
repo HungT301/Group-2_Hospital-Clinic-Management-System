@@ -18,6 +18,6 @@ void Patient::in() const {
     cout << " " << symptom << " " << diagnose << endl;
 }
 
-string getPatientID() const {
+string Patient::getPatientID() const {
     return patientID;
 }

@@ -16,7 +16,7 @@ void Staff::in() const {
     Person::in();
 }
 
-string Staff::getID() const {
+string Staff::getstaffID() const {
     return staffID;
 }
 

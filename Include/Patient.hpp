@@ -17,7 +17,7 @@ public:
 	void nhap();
 	void in() const;
 	
-	string getpatientID() const;
+	string getPatientID() const;
 };
 
 #endif
