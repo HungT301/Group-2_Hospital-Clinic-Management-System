@@ -1,16 +1,13 @@
 #ifndef PATIENT_HPP
 #define PATIENT_HPP
 
+#include "Person.hpp"
 #include <string>
 using namespace std;
 
 class Patient {
 private:
-	string id;
-	string name;
-	string DOB;
-	string Phone;
-	string gender;
+	string patientID;
 	string symptom;
 	string diagnose;
 
@@ -20,7 +17,7 @@ public:
 	void nhap();
 	void in() const;
 	
-	string getID() const;
+	string getpatientID() const;
 };
 
 #endif
