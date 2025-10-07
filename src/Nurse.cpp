@@ -1,6 +1,6 @@
 #include "Nurse.hpp"
 
-#include <iotream>
+#include <iostream>
 #include <string>
 using namespace std;
 

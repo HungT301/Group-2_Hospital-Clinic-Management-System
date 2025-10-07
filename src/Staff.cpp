@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-Staff :: void nhap(){
+void :: staff nhap(){
   cout << "enter the ID:"; cin >> id;
   cout << "enter the name:"; 
   cin.ignore();
