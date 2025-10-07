@@ -1,5 +1,6 @@
 #include "Patient.hpp"
 #include <iostream>
+
 using namespace std;
 
 Patient::Patient() {}
@@ -48,6 +49,7 @@ void Patient::in() const {
     cout << "Symptoms: " << trieuChung << endl;
     cout << "Diagnosis: " << chanDoan << endl;
 }
+
 string Patient::getID() const {
     return id;
 }
