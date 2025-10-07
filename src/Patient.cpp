@@ -19,7 +19,7 @@ void Patient::nhap() {
 
 void Patient::in() const {
     Person::in();
-    cout << " " << symptoms << " " << diagnosis;
+    cout << symptoms << " " << diagnosis << "\n";
 }
 
 
