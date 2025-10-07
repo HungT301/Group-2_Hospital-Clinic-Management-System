@@ -2,7 +2,7 @@
 #define NURSE_HPP
 
 #include <Staff.hpp>
-#include <string>
+#include <vector>
 using namespace std;
 
 class Nurse : public Staff {
