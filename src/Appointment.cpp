@@ -15,8 +15,5 @@ void Appointment::nhap() {
 }
 
 void Appointment::in() const {
-	cout << "Appointment id: " << id << endl;
-	cout << "Patient id: " << patientId << endl;
-	cout << "Doctor id: " << doctorId << endl;
-	cout << "Time: " << thoiGian << endl;
+	cout << id << " " << patientId << " " << doctorId << " " << thoiGian;
 }

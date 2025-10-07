@@ -15,8 +15,7 @@ void CheckupAppointment::nhap() {
 
 void CheckupAppointment::in() const {
     Appointment::in();
-    cout << "Room: " << room << endl;
-    cout << "Purpose: " << purpose << endl;
+    cout << " " << room << " " << purpose << endl;
 }
 
 //SurgeryAppointment
@@ -35,9 +34,7 @@ void SurgeryAppointment::nhap() {
 
 void SurgeryAppointment::in() const {
     Appointment::in();
-    cout << "Surgery type: " << surgeryType << endl;
-    cout << "Operation room: " << operationRoom << endl;
-    cout << "Main surgeon: " << mainSurgeon << endl;
+    cout << " " << surgeryType << " " << operationRoom << " " << mainSurgeon << endl;
 }
 
 //TherapyAppointment
@@ -58,7 +55,5 @@ void TherapyAppointment::nhap() {
 void TherapyAppointment::in() const {
     Appointment::in();
     cin.ignore();
-    cout << "Therapy type: " << therapyType << endl;
-    cout << "Session count: " << sessionCount << endl;
-    cout << "Doctor name: " << doctorName << endl;
+    cout << " " << therapyType << " " << sessionCount << " " << doctorName << endl;
 }
