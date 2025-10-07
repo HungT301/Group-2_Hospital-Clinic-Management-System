@@ -14,19 +14,26 @@ Patient::Patient(string id, string ten, string ngaysinh, string sdt,
     this->trieuChung = trieuChung;
     this->chanDoan = chanDoan;
 }
+
 void Patient::nhap() {
     cout << "Enter patient ID: ";
     getline(cin, id);
+
     cout << "Enter name: ";
     getline(cin, ten);
+
     cout << "Enter date of birth: ";
     getline(cin, ngaysinh);
+
     cout << "Enter phone number: ";
     getline(cin, sdt);
+
     cout << "Enter gender: ";
     getline(cin, gioiTinh);
+
     cout << "Enter symptoms: ";
     getline(cin, trieuChung);
+
     cout << "Enter diagnosis: ";
     getline(cin, chanDoan);
 }
