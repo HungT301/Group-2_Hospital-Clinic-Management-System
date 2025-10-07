@@ -11,6 +11,7 @@ private:
   string DOB;
   string gender;
   string phone;
+
 public:
   Person();
   virtual void nhap();
@@ -20,3 +21,4 @@ public:
 };
 
 #endif
+
