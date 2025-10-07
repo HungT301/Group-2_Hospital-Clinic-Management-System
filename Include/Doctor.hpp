@@ -2,6 +2,7 @@
 #define DOCTOR_HPP
 
 #include "Staff.hpp"
+#include <vector>
 using namespace std;
 
 class Doctor : public Staff {

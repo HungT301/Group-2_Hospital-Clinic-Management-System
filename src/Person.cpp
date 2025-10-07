@@ -5,7 +5,7 @@ using namespace std;
 
 Person::Person() {}
 
-Person::nhap() {
+void Person::nhap() {
 	cout << "Enter name: ";
 	getline(cin, name);
 	cout << "Enter date of birth: ";
@@ -16,6 +16,6 @@ Person::nhap() {
 	getline(cin, phone);
 }
 
-Person::in() {
+void Person::in() {
 	cout << name << " " << DOB << " " << gender << " " << phone;
 }
