@@ -40,7 +40,6 @@ void Patient::nhap() {
 }
 
 void Patient::in() const {
-    cout << "\n--- PATIENT INFORMATION ---\n";
     cout << "ID: " << id << endl;
     cout << "Name: " << name << endl;
     cout << "Date of birth: " << DOB << endl;
