@@ -6,7 +6,7 @@
 using namespace std;
 
 class Staff : public Person {
-private:
+protected:
 	string staffID;
 public:
 	Staff(); //mac dinh cac tham so =0

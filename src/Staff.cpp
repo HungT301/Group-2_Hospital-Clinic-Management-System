@@ -3,21 +3,20 @@
 #include <iostream>
 using namespace std;
 
-void Staff :: nhap(){
-  cout << "enter the ID:"; cin >> id;
-  cout << "enter the name:"; 
-  cin.ignore();
-  getline(cin, name);
-  cout << "enter Date Of Birth:"; cin >> DOB;
-  cout << "enter the Gender:"; cin >> gender;
-  cout << "enter the phone number:"; cin >> phone;
+Staff::Staff() {}
+
+void Staff::nhap() {
+    cout << "Enter ID: ";
+    getline(cin, staffID);
+    Person::nhap();
 }
 
-void Staff :: in() const{
-  cout << id << " " << name << " " << DOB << " " << gender << " " << phone << "\n";
+void Staff::in() const {
+    cout << "ID: " << staffID << endl;
+    Person::in();
 }
 
-string Staff :: getID() const{
-  return this->id;
+string Staff::getID() const {
+  return staffID;
 }
 

@@ -5,8 +5,7 @@
 using namespace std;
 
 class Person{
-private:
-  string id;
+protected:
   string name;
   string DOB;
   string gender;
@@ -16,8 +15,8 @@ public:
   Person();
   virtual void nhap();
   virtual void in() const;
-  ~Person();
-
+  
+  virtual ~Person() {};
 };
 
 #endif
