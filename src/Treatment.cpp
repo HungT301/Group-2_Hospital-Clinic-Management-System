@@ -4,12 +4,7 @@ using namespace std;
 
 Treatment::Treatment() {}
 
-Treatment::Treatment(string id, string patientId, string doctorId, string moTa, double chiPhi)
-    : id(id),
-      patientId(patientId),
-      doctorId(doctorId),
-      moTa(moTa),
-      chiPhi(chiPhi) {}
+Treatment::Treatment(string id, string patientId, string doctorId, string moTa, double chiPhi) : id(id), patientId(patientId), doctorId(doctorId), moTa(moTa), chiPhi(chiPhi) {}
 
 void Treatment::nhap() {
     cout << "Enter Treatment ID: ";
@@ -36,3 +31,4 @@ void Treatment::in() const {
 void Treatment::tinhChiPhi() const {
     cout << "Total cost of treatment: " << chiPhi << endl;
 }
+
