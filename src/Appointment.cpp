@@ -1,17 +1,19 @@
-#include "../include/Appointment.hpp"
+#include "Appointment.hpp"
 
 #include <iostream>
 using namespace std;
 
-Appointment::Appointment() {
-	id = patientId = doctorId = thoiGian = "";
-}
+Appointment::Appointment() {}
 
 void Appointment::nhap() {
-	cout << "Enter appointment id: "; cin >> id;
-	cout << "Enter patient id: "; cin >> patientId;
-	cout << "Enter doctor id: "; cin >> doctorId;
-	cout << "Enter time: "; cin >> thoiGian;
+	cout << "Enter appointment id: "; 
+	getline(cin, id);
+	cout << "Enter patient id: "; 
+	getline(cin, patientId);
+	cout << "Enter doctor id: "; 
+	getline(cin, doctorId);
+	cout << "Enter time: "; 
+	getline(cin, thoiGian);
 }
 
 void Appointment::in() const {

@@ -1,4 +1,4 @@
-#include "../include/AppointmentType.hpp"
+#include "AppointmentType.hpp"
 #include <iostream>
 using namespace std;
 
@@ -23,7 +23,6 @@ SurgeryAppointment::SurgeryAppointment() {}
 
 void SurgeryAppointment::nhap() {
     Appointment::nhap();
-    cin.ignore();
     cout << "Enter surgery type: ";
     getline(cin, surgeryType);
     cout << "Enter operation room: ";
@@ -42,7 +41,6 @@ TherapyAppointment::TherapyAppointment() {}
 
 void TherapyAppointment::nhap() {
     Appointment::nhap();
-    cin.ignore();
     cout << "Enter therapy type: ";
     getline(cin, therapyType);
     cout << "Enter session count: ";
@@ -54,6 +52,5 @@ void TherapyAppointment::nhap() {
 
 void TherapyAppointment::in() const {
     Appointment::in();
-    cin.ignore();
     cout << " " << therapyType << " " << sessionCount << " " << doctorName << endl;
 }

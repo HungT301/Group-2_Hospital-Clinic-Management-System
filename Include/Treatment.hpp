@@ -17,7 +17,7 @@ public:
 
 	virtual void nhap();
 	virtual void in() const;
-	virtual void computeCost() const;
+	virtual double computeCost() const = 0;
 
 	virtual ~Treatment() {}
 };

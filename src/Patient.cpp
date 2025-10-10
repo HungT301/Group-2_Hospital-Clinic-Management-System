@@ -6,6 +6,8 @@ using namespace std;
 Patient::Patient() {}
 
 void Patient::nhap() {
+    cout << "Enter patient id: ";
+    getline(cin, patientID);
     Person::nhap();
     cout << "Enter symptom: ";
     getline(cin, symptom);
@@ -14,6 +16,7 @@ void Patient::nhap() {
 }
 
 void Patient::in() const {
+    cout << patientID << " ";
     Person::in();
     cout << " " << symptom << " " << diagnose << endl;
 }
