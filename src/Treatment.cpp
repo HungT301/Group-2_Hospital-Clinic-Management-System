@@ -1,4 +1,4 @@
-#include "treatment.hpp"
+#include "Treatment.hpp"
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -26,13 +26,10 @@ void Treatment::nhap() {
 }
 
 void Treatment::in() const {
-    cout << left << setw(20) << " " << id << endl;
-    cout << left << setw(20) << " " << patientId << endl;
-    cout << left << setw(20) << " " << doctorId << endl;
-    cout << left << setw(20) << " " << moTa << endl;
-    cout << left << setw(20) << " " << fixed << setprecision(2) << cost << endl;
+    cout << id << " " << patientId << " " << doctorId << " " << moTa << " " << fixed << setprecision(2) << cost;
 }
 
 void Treatment::computeCost() const {
     cout << " " << fixed << setprecision(2) << cost << endl;
 }
+
