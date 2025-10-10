@@ -1,7 +1,7 @@
 #ifndef TREATMENTTYPE_HPP
 #define TREATMENTTYPE_HPP
 
-#include<Treatment.hpp>
+#include "Treatment.hpp"
 using namespace std;
 
 // ---------------- Medication ----------------
@@ -12,11 +12,10 @@ private:
 
 public:
     Medication();
-    Medication(string, string, string, string, double, int, double);
 
     void nhap() override;
     void in() const override;
-    void tinhChiPhi() const override;
+    double tinhChiPhi() const override;
 };
 
 // ---------------- Surgery ----------------
@@ -27,11 +26,10 @@ private:
 
 public:
     Surgery();
-    Surgery(string, string, string, string, double, double, double);
 
     void nhap() override;
     void in() const override;
-    void tinhChiPhi() const override;
+    double tinhChiPhi() const override;
 };
 
 // ---------------- Therapy ----------------
@@ -42,11 +40,10 @@ private:
 
 public:
     Therapy();
-    Therapy(string, string, string, string, double, int, double);
 
     void nhap() override;
     void in() const override;
-    void tinhChiPhi() const override;
+    double tinhChiPhi() const override;
 };
 
 #endif
