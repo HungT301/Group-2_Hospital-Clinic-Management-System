@@ -1,79 +1,109 @@
-#include "TreatmentType.hpp"
+#include "treatmenttype.hpp"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-Medication::Medication() {}
+Medication::Medication() : Treatment() {
+    soLuong = 0;
+    giaMoiDonVi = 0.0;
+}
 
-Medication::Medication(string id, string patientId, string doctorId, string moTa, double chiPhi, int soLuong, double giaMoiDonVi)
-: Treatment(id, patientId, doctorId, moTa, chiPhi), soLuong(soLuong), giaMoiDonVi(giaMoiDonVi) {}
+Medication::Medication(string id, string patientId, string doctorId, string moTa, double cost, int soLuong, double giaMoiDonVi) : Treatment() {
+    this->id = id;
+    this->patientId = patientId;
+    this->doctorId = doctorId;
+    this->moTa = moTa;
+    this->cost = cost;
+    this->soLuong = soLuong;
+    this->giaMoiDonVi = giaMoiDonVi;
+}
 
 void Medication::nhap() {
     Treatment::nhap();
-    cout << "Nhap so luong thuoc: ";
+    cout << "Enter quantity: ";
     cin >> soLuong;
-    cout << "Nhap gia moi don vi: ";
+    cout << "Enter price per unit: ";
     cin >> giaMoiDonVi;
     cin.ignore();
 }
 
 void Medication::in() const {
     Treatment::in();
-    cout << "So luong thuoc: " << soLuong << endl;
-    cout << "Gia moi don vi: " << giaMoiDonVi << endl;
+    cout << left << setw(20) << " " << soLuong << endl;
+    cout << left << setw(20) << " " << fixed << setprecision(2) << giaMoiDonVi << endl;
 }
 
 void Medication::tinhChiPhi() const {
-    double tong = chiPhi + soLuong * giaMoiDonVi;
-    cout << "Tong chi phi thuoc: " << tong << endl;
+    double total = soLuong * giaMoiDonVi;
+    cout << " " << fixed << setprecision(2) << total << endl;
 }
 
-Surgery::Surgery() {}
+Surgery::Surgery() : Treatment() {
+    phiBacSi = 0.0;
+    chiPhiThietBi = 0.0;
+}
 
-Surgery::Surgery(string id, string patientId, string doctorId, string moTa, double chiPhi, double phiBacSi, double chiPhiThietBi)
-: Treatment(id, patientId, doctorId, moTa, chiPhi),phiBacSi(phiBacSi), chiPhiThietBi(chiPhiThietBi) {}
+Surgery::Surgery(string id, string patientId, string doctorId, string moTa, double cost, double phiBacSi, double chiPhiThietBi) : Treatment() {
+    this->id = id;
+    this->patientId = patientId;
+    this->doctorId = doctorId;
+    this->moTa = moTa;
+    this->cost = cost;
+    this->phiBacSi = phiBacSi;
+    this->chiPhiThietBi = chiPhiThietBi;
+}
 
 void Surgery::nhap() {
     Treatment::nhap();
-    cout << "Nhap phi bac si: ";
+    cout << "Enter doctor fee: ";
     cin >> phiBacSi;
-    cout << "Nhap chi phi thiet bi: ";
+    cout << "Enter equipment cost: ";
     cin >> chiPhiThietBi;
     cin.ignore();
 }
 
 void Surgery::in() const {
     Treatment::in();
-    cout << "Phi bac si: " << phiBacSi << endl;
-    cout << "Chi phi thiet bi: " << chiPhiThietBi << endl;
+    cout << left << setw(20) << " " << fixed << setprecision(2) << phiBacSi << endl;
+    cout << left << setw(20) << " " << fixed << setprecision(2) << chiPhiThietBi << endl;
 }
 
 void Surgery::tinhChiPhi() const {
-    double tong = chiPhi + phiBacSi + chiPhiThietBi;
-    cout << "Tong chi phi phau thuat: " << tong << endl;
+    double total = cost + phiBacSi + chiPhiThietBi;
+    cout << " " << fixed << setprecision(2) << total << endl;
 }
 
-Therapy::Therapy() {}
+Therapy::Therapy() : Treatment() {
+    soBuoi = 0;
+    giaMoiBuoi = 0.0;
+}
 
-Therapy::Therapy(string id, string patientId, string doctorId, string moTa, double chiPhi, int soBuoi, double giaMoiBuoi)
-: Treatment(id, patientId, doctorId, moTa, chiPhi), soBuoi(soBuoi), giaMoiBuoi(giaMoiBuoi) {}
+Therapy::Therapy(string id, string patientId, string doctorId, string moTa, double cost, int soBuoi, double giaMoiBuoi) : Treatment() {
+    this->id = id;
+    this->patientId = patientId;
+    this->doctorId = doctorId;
+    this->moTa = moTa;
+    this->cost = cost;
+    this->soBuoi = soBuoi;
+    this->giaMoiBuoi = giaMoiBuoi;
+}
 
 void Therapy::nhap() {
     Treatment::nhap();
-    cout << "Nhap so buoi tri lieu: ";
+    cout << "Enter number of sessions: ";
     cin >> soBuoi;
-    cout << "Nhap gia moi buoi: ";
+    cout << "Enter price per session: ";
     cin >> giaMoiBuoi;
     cin.ignore();
 }
 
 void Therapy::in() const {
     Treatment::in();
-    cout << "So buoi tri lieu: " << soBuoi << endl;
-    cout << "Gia moi buoi: " << giaMoiBuoi << endl;
+    cout << left << setw(20) << " " << soBuoi << endl;
+    cout << left << setw(20) << " " << fixed << setprecision(2) << giaMoiBuoi << endl;
 }
 
 void Therapy::tinhChiPhi() const {
-    double tong = chiPhi + soBuoi * giaMoiBuoi;
-    cout << "Tong chi phi tri lieu: " << tong << endl;
+    double total = soBuoi * giaMoiBuoi;
+    cout << "Total therapy cost: " << fixed << setprecision(2) << total << endl;
 }
-

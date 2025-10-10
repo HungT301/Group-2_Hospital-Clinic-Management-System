@@ -1,38 +1,38 @@
-#include "Treatment.hpp"
+#include "treatment.hpp"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-Treatment::Treatment() {}
-
-Treatment::Treatment(string id, string patientId, string doctorId, string moTa, double chiPhi)
-    : id(id),
-      patientId(patientId),
-      doctorId(doctorId),
-      moTa(moTa),
-      chiPhi(chiPhi) {}
+Treatment::Treatment() {
+    id = "";
+    patientId = "";
+    doctorId = "";
+    moTa = "";
+    cost = 0.0;
+}
 
 void Treatment::nhap() {
-    cout << "Enter Treatment ID: ";
+    cout << "Enter treatment ID: ";
     getline(cin, id);
-    cout << "Enter Patient ID: ";
+    cout << "Enter patient ID: ";
     getline(cin, patientId);
-    cout << "Enter Doctor ID: ";
+    cout << "Enter doctor ID: ";
     getline(cin, doctorId);
-    cout << "Enter Description: ";
+    cout << "Enter treatment description: ";
     getline(cin, moTa);
-    cout << "Enter Cost: ";
-    cin >> chiPhi;
+    cout << "Enter cost: ";
+    cin >> cost;
     cin.ignore();
 }
 
 void Treatment::in() const {
-    cout << "Treatment ID: " << id << endl;
-    cout << "Patient ID: " << patientId << endl;
-    cout << "Doctor ID: " << doctorId << endl;
-    cout << "Description: " << moTa << endl;
-    cout << "Cost: " << chiPhi << endl;
+    cout << left << setw(20) << " " << id << endl;
+    cout << left << setw(20) << " " << patientId << endl;
+    cout << left << setw(20) << " " << doctorId << endl;
+    cout << left << setw(20) << " " << moTa << endl;
+    cout << left << setw(20) << " " << fixed << setprecision(2) << cost << endl;
 }
 
-void Treatment::tinhChiPhi() const {
-    cout << "Total cost of treatment: " << chiPhi << endl;
+void Treatment::computeCost() const {
+    cout << " " << fixed << setprecision(2) << cost << endl;
 }

@@ -25,12 +25,7 @@ void Doctor::nhap() {
 
 void Doctor::in() const {
     Staff::in();
-    cout << specialization << endl;
-    for (const auto &s : schedules) {
-        cout << s << " ";
-    }
-    cout << endl;
+    cout << " " << specialization << " ";
+    for (const auto &s : schedules) cout << s << " ";
+    cout << "\n";
 }
-
-
-
