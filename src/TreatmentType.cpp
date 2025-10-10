@@ -63,8 +63,7 @@ void Surgery::nhap() {
 
 void Surgery::in() const {
     Treatment::in();
-    cout << left << setw(20) << " " << fixed << setprecision(2) << phiBacSi << endl;
-    cout << left << setw(20) << " " << fixed << setprecision(2) << chiPhiThietBi << endl;
+    cout << left << setw(20) << " " << fixed << setprecision(2) << phiBacSi << " " << chiPhiThietBi << endl;
 }
 
 void Surgery::tinhChiPhi() const {
@@ -98,12 +97,12 @@ void Therapy::nhap() {
 
 void Therapy::in() const {
     Treatment::in();
-    cout << left << setw(20) << " " << soBuoi << endl;
-    cout << left << setw(20) << " " << fixed << setprecision(2) << giaMoiBuoi << endl;
+    cout << left << setw(20) << " " << soBuoi << " " << fixed << setprecision(2) << giaMoiBuoi << endl;
 }
 
 void Therapy::tinhChiPhi() const {
     double total = soBuoi * giaMoiBuoi;
     cout << "Total therapy cost: " << fixed << setprecision(2) << total << endl;
 }
+
 
