@@ -29,8 +29,7 @@ void Medication::nhap() {
 
 void Medication::in() const {
     Treatment::in();
-    cout << left << setw(20) << " " << soLuong << endl;
-    cout << left << setw(20) << " " << fixed << setprecision(2) << giaMoiDonVi << endl;
+    cout << " " << soLuong << " " << fixed << setprecision(2) << giaMoiDonVi;
 }
 
 void Medication::tinhChiPhi() const {
@@ -107,3 +106,4 @@ void Therapy::tinhChiPhi() const {
     double total = soBuoi * giaMoiBuoi;
     cout << "Total therapy cost: " << fixed << setprecision(2) << total << endl;
 }
+
