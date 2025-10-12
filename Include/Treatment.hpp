@@ -10,14 +10,16 @@ protected:
 	string patientId;
 	string doctorId;
 	string moTa;
-	double cost;
+	double baseCost;
 
 public:
 	Treatment();
 
 	virtual void nhap();
 	virtual void in() const;
-	virtual double computeCost() const = 0;
+	virtual double tinhChiPhi() const = 0;
+
+	string getID() const;
 
 	virtual ~Treatment() {}
 };

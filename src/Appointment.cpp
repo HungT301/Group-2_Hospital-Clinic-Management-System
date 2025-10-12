@@ -19,3 +19,7 @@ void Appointment::nhap() {
 void Appointment::in() const {
 	cout << id << " " << patientId << " " << doctorId << " " << thoiGian;
 }
+
+string Appointment::getID() const {
+	return id;
+}

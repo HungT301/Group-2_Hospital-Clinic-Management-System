@@ -17,6 +17,8 @@ public:
 	virtual void nhap();
 	virtual void in() const;
 
+	string getID() const;
+
 	virtual ~Appointment() {}
 };
 

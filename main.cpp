@@ -10,7 +10,7 @@
 #include "TreatmentType.hpp"
 using namespace std;
 
-// Menu
+// Menu function
 void menuDoctor(vector<Doctor>& doctors);
 void menuNurse(vector<Nurse>& nurses);
 void menuPatient(vector<Patient>& patients);
@@ -57,7 +57,7 @@ int main() {
     return 0;
 }
 
-// Menu deploy
+// Menu function deploy
 
 // Doctor
 void menuDoctor(vector<Doctor>& doctors) {}

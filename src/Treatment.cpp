@@ -3,13 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-Treatment::Treatment() {
-    id = "";
-    patientId = "";
-    doctorId = "";
-    moTa = "";
-    cost = 0.0;
-}
+Treatment::Treatment() {}
 
 void Treatment::nhap() {
     cout << "Enter treatment ID: ";
@@ -20,16 +14,16 @@ void Treatment::nhap() {
     getline(cin, doctorId);
     cout << "Enter treatment description: ";
     getline(cin, moTa);
-    cout << "Enter cost: ";
-    cin >> cost;
+    cout << "Enter base cost: ";
+    cin >> baseCost;
     cin.ignore();
 }
 
 void Treatment::in() const {
-    cout << id << " " << patientId << " " << doctorId << " " << moTa << " " << fixed << setprecision(2) << cost;
+    cout << id << " " << patientId << " " << doctorId << " " << moTa << " " << fixed << setprecision(2) << tinhChiPhi();
 }
 
-void Treatment::computeCost() const {
-    cout << " " << fixed << setprecision(2) << cost << endl;
+double Treatment::tinhChiPhi() const {
+    return baseCost;
 }
 
