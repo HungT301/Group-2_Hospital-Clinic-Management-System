@@ -3,7 +3,9 @@
 using namespace std;
 
 //CheckupAppointment
-CheckupAppointment::CheckupAppointment() {}
+CheckupAppointment::CheckupAppointment() {
+    appointmentType = "Checkup";
+}
 
 void CheckupAppointment::nhap() {
     Appointment::nhap();
@@ -15,11 +17,15 @@ void CheckupAppointment::nhap() {
 
 void CheckupAppointment::in() const {
     Appointment::in();
-    cout << " " << room << " " << purpose << endl;
+    cout << left
+         << setw(10) << room
+         << setw(10) << purpose << endl;
 }
 
 //SurgeryAppointment
-SurgeryAppointment::SurgeryAppointment() {}
+SurgeryAppointment::SurgeryAppointment() {
+    appointmentType = "Surgery";
+}
 
 void SurgeryAppointment::nhap() {
     Appointment::nhap();
@@ -33,11 +39,16 @@ void SurgeryAppointment::nhap() {
 
 void SurgeryAppointment::in() const {
     Appointment::in();
-    cout << " " << surgeryType << " " << operationRoom << " " << mainSurgeon << endl;
+    cout << left
+         << setw(10) << surgeryType
+         << setw(10) << operationRoom
+         << setw(18) << mainSurgeon << endl;
 }
 
 //TherapyAppointment
-TherapyAppointment::TherapyAppointment() {}
+TherapyAppointment::TherapyAppointment() {
+    appointmentType = "Therapy";
+}
 
 void TherapyAppointment::nhap() {
     Appointment::nhap();
@@ -52,5 +63,8 @@ void TherapyAppointment::nhap() {
 
 void TherapyAppointment::in() const {
     Appointment::in();
-    cout << " " << therapyType << " " << sessionCount << " " << doctorName << endl;
+    cout << left
+         << setw(10) << therapyType
+         << setw(10) << sessionCount
+         << setw(18) << doctorName << endl;
 }

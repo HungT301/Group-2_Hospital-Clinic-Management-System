@@ -10,13 +10,16 @@ protected:
 	string patientId;
 	string doctorId;
 	string thoiGian;
+	string appointmentType;
 
 public:	
 	Appointment();
 
 	virtual void nhap();
 	virtual void in() const;
+	void sumary() const;
 
+	string getType() const;
 	string getID() const;
 
 	virtual ~Appointment() {}
