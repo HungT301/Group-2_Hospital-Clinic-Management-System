@@ -113,6 +113,7 @@ void menuAppointment(vector<Appointment*>& appointments) {
             for (auto &a : appointments) {
                 if (a->getType() == "Checkup") a->in();
             }
+            cout << endl;
 
             cout << "\n===== SURGERY APPOINTMENT LIST =====\n";
             cout << left
@@ -128,6 +129,7 @@ void menuAppointment(vector<Appointment*>& appointments) {
             for (auto &a : appointments) {
                 if (a->getType() == "Surgery") a->in();
             }
+            cout << endl;
 
             cout << "\n===== THERAPY APPOINTMENT LIST =====\n";
             cout << left
@@ -148,16 +150,19 @@ void menuAppointment(vector<Appointment*>& appointments) {
             Appointment* c = new CheckupAppointment();
             c->nhap();
             appointments.push_back(c);
+            cout << "Adding appointment successfully!\n"
         
         } else if (choice == 4) {
             Appointment* s = new SurgeryAppointment();
             s->nhap();
             appointments.push_back(s);
+            cout << "Adding appointment successfully!\n"
         
         } else if (choice == 5) {
             Appointment* t = new TherapyAppointment();
             t->nhap();
             appointments.push_back(t);
+            cout << "Adding appointment successfully!\n"
         
         } else if (choice == 6) {
             bool found = false;
@@ -190,7 +195,7 @@ void menuAppointment(vector<Appointment*>& appointments) {
             for (auto it = appointments.begin(); it != appointments.end(); it++) {
                 if ((*it)->getID() == delID) {
                     delete *it;
-                    appointments.erase(it);
+                    it = appointments.erase(it);
                     removed = true;
                     cout << "Appointment removed successfully!\n";
                     break;
