@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../include/Person.hpp"
+#include <iomanip>
+#include "Person.hpp"
 #include "Staff.hpp"
 #include "Doctor.hpp"
 #include "Nurse.hpp"
