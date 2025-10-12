@@ -113,7 +113,6 @@ void menuAppointment(vector<Appointment*>& appointments) {
             for (auto &a : appointments) {
                 if (a->getType() == "Checkup") a->in();
             }
-            cout << endl;
 
             cout << "\n===== SURGERY APPOINTMENT LIST =====\n";
             cout << left
@@ -129,7 +128,6 @@ void menuAppointment(vector<Appointment*>& appointments) {
             for (auto &a : appointments) {
                 if (a->getType() == "Surgery") a->in();
             }
-            cout << endl;
 
             cout << "\n===== THERAPY APPOINTMENT LIST =====\n";
             cout << left
