@@ -148,19 +148,19 @@ void menuAppointment(vector<Appointment*>& appointments) {
             Appointment* c = new CheckupAppointment();
             c->nhap();
             appointments.push_back(c);
-            cout << "Adding appointment successfully!\n"
+            cout << "Adding appointment successfully!\n";
         
         } else if (choice == 4) {
             Appointment* s = new SurgeryAppointment();
             s->nhap();
             appointments.push_back(s);
-            cout << "Adding appointment successfully!\n"
+            cout << "Adding appointment successfully!\n";
         
         } else if (choice == 5) {
             Appointment* t = new TherapyAppointment();
             t->nhap();
             appointments.push_back(t);
-            cout << "Adding appointment successfully!\n"
+            cout << "Adding appointment successfully!\n";
         
         } else if (choice == 6) {
             bool found = false;
