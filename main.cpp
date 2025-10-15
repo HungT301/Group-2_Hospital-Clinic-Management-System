@@ -61,7 +61,99 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor>& doctors) {}
+void menuDoctor(vector<Doctor>& doctors) {
+    int choice;
+    do {
+        cout << "\n===== DOCTOR MANAGEMENT MENU =====\n";
+        cout << "1. Doctor list\n";
+        cout << "2. Add new doctor\n";
+        cout << "3. Search doctor by ID\n";
+        cout << "4. Remove doctor\n";
+        cout << "5. Update doctor information\n";
+        cout << "6. Doctor schedule list\n"; 
+        cout << "0. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+        cin.ignore();
+
+        if (choice == 1) {
+            cout << "\n===== DOCTOR LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(20) << "Name"
+                 << setw(15) << "Specialty"
+                 << setw(15) << "Phone"
+                 << setw(15) << "Email" << endl;
+            cout << string(75, '-') << endl;
+            for (auto &d : doctors) d.display();
+
+        } else if (choice == 2) {
+            Doctor d;
+            d.input();
+            doctors.push_back(d);
+            cout << "Doctor added successfully!\n";
+
+        } else if (choice == 3) {
+            string searchID;
+            cout << "Enter Doctor ID to search: ";
+            getline(cin, searchID);
+            bool found = false;
+
+            for (auto &d : doctors) {
+                if (d.getID() == searchID) {
+                    cout << "\nDoctor found:\n";
+                    d.display();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) cout << "Doctor ID not found!\n";
+
+        } else if (choice == 4) {
+            string delID;
+            cout << "Enter Doctor ID to remove: ";
+            getline(cin, delID);
+            bool removed = false;
+
+            for (auto it = doctors.begin(); it != doctors.end(); it++) {
+                if (it->getID() == delID) {
+                    doctors.erase(it);
+                    removed = true;
+                    cout << "Doctor removed successfully!\n";
+                    break;
+                }
+            }
+            if (!removed) cout << "Invalid Doctor ID!\n";
+
+        } else if (choice == 5) {
+            string updateID;
+            cout << "Enter Doctor ID to update: ";
+            getline(cin, updateID);
+            bool updated = false;
+
+            for (auto &d : doctors) {
+                if (d.getID() == updateID) {
+                    cout << "Enter new information for this doctor:\n";
+                    d.input();
+                    cout << "Doctor updated successfully!\n";
+                    updated = true;
+                    break;
+                }
+            }
+            if (!updated) cout << "Invalid Doctor ID!\n";
+
+        } else if (choice == 6) {
+            cout << "\n===== DOCTOR SCHEDULE LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(20) << "Name"
+                 << setw(15) << "Specialty"
+                 << setw(30) << "Schedule" << endl;
+            cout << string(75, '-') << endl;
+            for (auto &d : doctors) d.showSchedule();
+        }   
+    } while (choice != 0);
+}
 
 // Nurse
 void menuNurse(vector<Nurse>& nurses) {}
