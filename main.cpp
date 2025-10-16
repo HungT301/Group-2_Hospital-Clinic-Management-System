@@ -298,4 +298,241 @@ void menuAppointment(vector<Appointment*>& appointments) {
 }
 
 //Treatment
-void menuTreatment(vector<Treatment*>& treatments) {}
+void menuTreatment(vector<Treatment*>& treatments) {
+    int choice;
+    do {
+        cout << "\n=== TREATMENT MANAGEMENT ===" << endl;
+        cout << "1. Add new treatment" << endl;
+        cout << "2. Display all treatments" << endl;
+        cout << "3. Calculate total treatment cost" << endl;
+        cout << "4. Search treatments by patient ID" << endl;
+        cout << "5. Update treatment information" << endl;
+        cout << "6. Delete treatment" << endl;
+        cout << "7. Display treatments by type" << endl;
+        cout << "0. Back to main menu" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int type;
+                cout << "Select treatment type:" << endl;
+                cout << "1. Surgery" << endl;
+                cout << "2. Therapy" << endl;
+                cout << "3. Medication" << endl;
+                cout << "Enter your choice: ";
+                cin >> type;
+
+                Treatment* newTreatment = nullptr;
+                switch (type) {
+                    case 1:
+                        newTreatment = new Surgery();
+                        break;
+                    case 2:
+                        newTreatment = new Therapy();
+                        break;
+                    case 3:
+                        newTreatment = new Medication();
+                        break;
+                    default:
+                        cout << "Invalid choice!" << endl;
+                        break;
+                }
+
+                if (newTreatment) {
+                    newTreatment->input();
+                    treatments.push_back(newTreatment);
+                    cout << "Treatment added successfully!" << endl;
+                }
+                break;
+            }
+            case 2: {
+                if (treatments.empty()) {
+                    cout << "Treatment list is empty!" << endl;
+                } else {
+                    cout << "\n=== ALL TREATMENTS ===" << endl;
+                    for (size_t i = 0; i < treatments.size(); i++) {
+                        cout << "--- Treatment " << i + 1 << " ---" << endl;
+                        treatments[i]->display();
+                        cout << endl;
+                    }
+                }
+                break;
+            }
+            case 3: {
+                double totalCost = 0;
+                for (const auto& treatment : treatments) {
+                    totalCost += treatment->calculateCost();
+                }
+                cout << "Total treatment cost: " << fixed << setprecision(2) << totalCost << " VND" << endl;
+                break;
+            }
+            case 4: {
+                string patientId;
+                cout << "Enter patient ID to search: ";
+                cin >> patientId;
+                
+                bool found = false;
+                for (const auto& treatment : treatments) {
+                    if (treatment->getPatientId() == patientId) {
+                        treatment->display();
+                        cout << endl;
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    cout << "No treatments found for patient ID: " << patientId << endl;
+                }
+                break;
+            }
+            case 5: {
+                string treatmentId;
+                cout << "Enter treatment ID to update: ";
+                cin >> treatmentId;
+                
+                bool found = false;
+                for (auto& treatment : treatments) {
+                    if (treatment->getID() == treatmentId) {
+                        cout << "Current treatment information:" << endl;
+                        treatment->display();
+                        cout << "\nEnter new information:" << endl;
+                        treatment->input();
+                        cout << "Treatment updated successfully!" << endl;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    cout << "Treatment with ID " << treatmentId << " not found!" << endl;
+                }
+                break;
+            }
+            case 6: {
+                string treatmentId;
+                cout << "Enter treatment ID to delete: ";
+                cin >> treatmentId;
+                
+                bool found = false;
+                for (auto it = treatments.begin(); it != treatments.end(); ++it) {
+                    if ((*it)->getID() == treatmentId) {
+                        delete *it;
+                        treatments.erase(it);
+                        cout << "Treatment deleted successfully!" << endl;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    cout << "Treatment with ID " << treatmentId << " not found!" << endl;
+                }
+                break;
+            }
+            case 7: {
+                int type;
+                cout << "Select treatment type to display:" << endl;
+                cout << "1. Surgery" << endl;
+                cout << "2. Therapy" << endl;
+                cout << "3. Medication" << endl;
+                cout << "Enter your choice: ";
+                cin >> type;
+                
+                bool found = false;
+                for (const auto& treatment : treatments) {
+                    switch (type) {
+                        case 1:
+                            if (dynamic_cast<Surgery*>(treatment)) {
+                                treatment->display();
+                                cout << endl;
+                                found = true;
+                            }
+                            break;
+                        case 2:
+                            if (dynamic_cast<Therapy*>(treatment)) {
+                                treatment->display();
+                                cout << endl;
+                                found = true;
+                            }
+                            break;
+                        case 3:
+                            if (dynamic_cast<Medication*>(treatment)) {
+                                treatment->display();
+                                cout << endl;
+                                found = true;
+                            }
+                            break;
+                        default:
+                            cout << "Invalid choice!" << endl;
+                            return;
+                    }
+                }
+                if (!found) {
+                    cout << "No treatments of selected type found!" << endl;
+                }
+                break;
+            }
+            case 0:
+                cout << "Returning to main menu..." << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please try again." << endl;
+                break;
+        }
+        
+        cout << "Press Enter to continue...";
+        cin.ignore();
+        cin.get();
+        
+    } while (choice != 0);
+}
+// In Treatment.hpp
+class Treatment {
+protected:
+    string id;
+    string patientId;
+    string doctorId;
+    string description;
+    double baseCost;
+
+public:
+    Treatment();
+
+    virtual void input();
+    virtual void display() const;
+    virtual double calculateCost() const = 0;
+
+    string getID() const { return id; }
+    string getPatientId() const { return patientId; }
+    string getDoctorId() const { return doctorId; }
+
+    virtual ~Treatment() {}
+};
+// Treatment.cpp
+#include <iostream>
+#include "Treatment.hpp"
+using namespace std;
+
+Treatment::Treatment() : baseCost(0) {}
+
+void Treatment::input() {
+    cout << "Enter treatment ID: ";
+    cin >> id;
+    cout << "Enter patient ID: ";
+    cin >> patientId;
+    cout << "Enter doctor ID: ";
+    cin >> doctorId;
+    cin.ignore();
+    cout << "Enter description: ";
+    getline(cin, description);
+    cout << "Enter base cost: ";
+    cin >> baseCost;
+}
+
+void Treatment::display() const {
+    cout << "Treatment ID: " << id << endl;
+    cout << "Patient ID: " << patientId << endl;
+    cout << "Doctor ID: " << doctorId << endl;
+    cout << "Description: " << description << endl;
+    cout << "Base cost: " << baseCost << endl;
+}
+
+
