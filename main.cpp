@@ -12,18 +12,18 @@
 using namespace std;
 
 // Menu function
-void menuDoctor(vector<Doctor>& doctors);
-void menuNurse(vector<Nurse>& nurses);
-void menuPatient(vector<Patient>& patients);
+void menuDoctor(vector<Doctor*>& doctors);
+void menuNurse(vector<Nurse*>& nurses);
+void menuPatient(vector<Patient*>& patients);
 void menuAppointment(vector<Appointment*>& appointments);
 void menuTreatment(vector<Treatment*>& treatments);
 
 // Main
 int main() {
 
-    vector<Doctor> doctors;
-    vector<Nurse> nurses;
-    vector<Patient> patients;
+    vector<Doctor*> doctors;
+    vector<Nurse*> nurses;
+    vector<Patient*> patients;
     vector<Appointment*> appointments;
     vector<Treatment*> treatments;
 
@@ -38,7 +38,7 @@ int main() {
         cout << "0. Exit.\n";
         cout << "Enter choice: ";
         cin >> choice;
-
+        cin.ignore();
 
         switch (choice) {
             case 1: menuDoctor(doctors); break;
@@ -61,7 +61,7 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor>& doctors) {
+void menuDoctor(vector<Doctor*>& doctors) {
     int choice;
     do {
         cout << "\n===== DOCTOR MANAGEMENT MENU =====\n";
@@ -74,6 +74,7 @@ void menuDoctor(vector<Doctor>& doctors) {
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
+        cin.ignore();
 
         if (choice == 1) {
             cout << "\n===== DOCTOR LIST =====\n";
@@ -155,7 +156,7 @@ void menuDoctor(vector<Doctor>& doctors) {
 }
 
 // Nurse
-void menuNurse(vector<Nurse>& nurses) {
+void menuNurse(vector<Nurse*>& nurses) {
     int choice;
 
     do {
@@ -169,6 +170,7 @@ void menuNurse(vector<Nurse>& nurses) {
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
+        cin.ignore();
 
 
         if (choice == 1) {
@@ -258,7 +260,7 @@ void menuNurse(vector<Nurse>& nurses) {
 }
 
 // Patient
-void menuPatient(vector<Patient>& patient) {}
+void menuPatient(vector<Patient*>& patient) {}
 
 // Appointment
 void menuAppointment(vector<Appointment*>& appointments) {
