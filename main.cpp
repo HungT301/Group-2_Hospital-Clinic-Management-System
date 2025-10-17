@@ -185,9 +185,8 @@ void menuNurse(vector<Nurse*>& nurses) {
             cout << left
                  << setw(10) << "ID"
                  << setw(20) << "Name"
-                 << setw(15) << "Position"
-                 << setw(15) << "Phone"
-                 << setw(15) << "Email" << endl;
+                 << setw(15) << "DOB"
+                 << setw(15) << "Phone" << endl;
             cout << string(75, '-') << endl;
 
             for (auto &n : nurses) n.in();
@@ -210,9 +209,8 @@ void menuNurse(vector<Nurse*>& nurses) {
                     cout << left
                          << setw(10) << "ID"
                          << setw(20) << "Name"
-                         << setw(15) << "Position"
-                         << setw(15) << "Phone"
-                         << setw(15) << "Email" << endl;
+                         << setw(15) << "DOB"
+                         << setw(15) << "Phone" << endl;
                     cout << string(75, '-') << endl;
                     n.in();
                     found = true;
