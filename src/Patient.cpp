@@ -1,6 +1,7 @@
 #include "Patient.hpp"
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Patient::Patient() {}
@@ -16,9 +17,11 @@ void Patient::nhap() {
 }
 
 void Patient::in() const {
-    cout << patientID << " ";
+    cout << left << setw(10) << patientID;
     Person::in();
-    cout << " " << symptom << " " << diagnose << endl;
+    cout << left
+         << setw(10) << symptom
+         << setw(10) << diagnose << endl;
 }
 
 string Patient::getPatientID() const {

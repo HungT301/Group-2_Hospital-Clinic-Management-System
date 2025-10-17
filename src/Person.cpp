@@ -1,6 +1,7 @@
 #include "Person.hpp"
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Person::Person() {}
@@ -17,5 +18,9 @@ void Person::nhap() {
 }
 
 void Person::in() const {
-	cout << name << " " << DOB << " " << gender << " " << phone;
+	cout << left
+		 << setw(10) << name
+		 << setw(12) << DOB
+		 << setw(10) << gender
+		 << setw(15) << phone;
 }
