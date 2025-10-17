@@ -190,11 +190,11 @@ void menuNurse(vector<Nurse*>& nurses) {
                  << setw(15) << "Phone" << endl;
             cout << string(75, '-') << endl;
 
-            for (auto &n : nurses) n.in();
+            for (auto &n : nurses) n->in();
 
         } else if (choice == 2) {
             Nurse n;
-            n.nhap();
+            n->nhap();
             nurses.push_back(n);
             cout << "Nurse added successfully!\n";
 
@@ -205,7 +205,7 @@ void menuNurse(vector<Nurse*>& nurses) {
             getline(cin, searchID);
 
             for (auto &n : nurses) {
-                if (n.getID() == searchID) {
+                if (n->getstaffID() == searchID) {
                     cout << "\n===== NURSE FOUND =====\n";
                     cout << left
                          << setw(10) << "ID"
@@ -214,7 +214,7 @@ void menuNurse(vector<Nurse*>& nurses) {
                          << setw(15) << "Gender"
                          << setw(15) << "Phone" << endl;
                     cout << string(75, '-') << endl;
-                    n.in();
+                    n->in();
                     found = true;
                     break;
                 }
@@ -228,7 +228,7 @@ void menuNurse(vector<Nurse*>& nurses) {
             getline(cin, delID);
 
             for (auto it = nurses.begin(); it != nurses.end(); ++it) {
-                if (it->getID() == delID) {
+                if (it->getstaffID() == delID) {
                     nurses.erase(it);
                     removed = true;
                     cout << "Nurse removed successfully!\n";
@@ -244,9 +244,9 @@ void menuNurse(vector<Nurse*>& nurses) {
             getline(cin, updateID);
 
             for (auto &n : nurses) {
-                if (n.getID() == updateID) {
+                if (n->getstaffID() == updateID) {
                     cout << "Enter new information for this nurse:\n";
-                    n.nhap();
+                    n->nhap();
                     cout << "Nurse updated successfully!\n";
                     updated = true;
                     break;
@@ -257,7 +257,7 @@ void menuNurse(vector<Nurse*>& nurses) {
         } else if (choice == 6) {
             cout << "\n===== NURSE SHIFTS & ON-CALL ROOMS =====\n";
             for (auto &n : nurses) {
-                n.in();
+                n->in();
                 cout << string(50, '-') << endl;
             }
 
