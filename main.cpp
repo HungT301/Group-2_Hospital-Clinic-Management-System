@@ -294,9 +294,7 @@ void menuPatient(vector<Patient>& patients) {
                  << setw(20) << "Diagnosis" << endl;
             cout << string(110, '-') << endl;
 
-            for (auto& p : patients) {
-                p.in();
-            }
+            for (auto& p : patients) p.in();
 
         } else if (choice == 2) {
             Patient p;
