@@ -17,7 +17,7 @@ public:
 
 	virtual void nhap();
 	virtual void in() const;
-	virtual double tinhChiPhi() const = 0;
+	virtual double tinhChiPhi() const;
 
 	string getID() const;
 

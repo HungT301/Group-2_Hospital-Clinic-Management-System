@@ -21,9 +21,9 @@ void menuTreatment(vector<Treatment*>& treatments);
 // Main
 int main() {
 
-    vector<Doctor*> doctors;
-    vector<Nurse*> nurses;
-    vector<Patient*> patients;
+    vector<Doctor> doctors;
+    vector<Nurse> nurses;
+    vector<Patient> patients;
     vector<Appointment*> appointments;
     vector<Treatment*> treatments;
 
@@ -61,7 +61,7 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor*>& doctors) {
+void menuDoctor(vector<Doctor>& doctors) {
     int choice;
 
     do {
@@ -90,7 +90,7 @@ void menuDoctor(vector<Doctor*>& doctors) {
             for (auto &d : doctors) d->in();
 
         } else if (choice == 2) {
-            Doctor* d = new Doctor();
+            Doctor d;
             d->nhap();
             doctors.push_back(d);
             cout << "Doctor added successfully!\n";
@@ -102,7 +102,7 @@ void menuDoctor(vector<Doctor*>& doctors) {
             getline(cin, searchID);
 
             for (auto &d : doctors) {
-                if (d->getID() == searchID) {
+                if (d->getstaffID() == searchID) {
                     cout << "\n===== DOCTOR FOUND =====\n";
                     cout << left
                          << setw(10) << "ID"
@@ -125,7 +125,7 @@ void menuDoctor(vector<Doctor*>& doctors) {
             getline(cin, delID);
 
             for (auto it = doctors.begin(); it != doctors.end(); ++it) {
-                if ((*it)->getID() == delID) {
+                if ((*it)->getstaffID() == delID) {
                     delete *it;
                     doctors.erase(it);
                     removed = true;
@@ -142,7 +142,7 @@ void menuDoctor(vector<Doctor*>& doctors) {
             getline(cin, updateID);
 
             for (auto &d : doctors) {
-                if (d->getID() == updateID) {
+                if (d->getstaffID() == updateID) {
                     cout << "Enter new information for this doctor:\n";
                     d->nhap();
                     cout << "Doctor updated successfully!\n";
@@ -164,7 +164,7 @@ void menuDoctor(vector<Doctor*>& doctors) {
 }
 
 // Nurse
-void menuNurse(vector<Nurse*>& nurses) {
+void menuNurse(vector<Nurse>& nurses) {
     int choice;
 
     do {
@@ -194,7 +194,7 @@ void menuNurse(vector<Nurse*>& nurses) {
             for (auto &n : nurses) n->in();
 
         } else if (choice == 2) {
-            Nurse* n;
+            Nurse n;
             n->nhap();
             nurses.push_back(n);
             cout << "Nurse added successfully!\n";
@@ -229,7 +229,7 @@ void menuNurse(vector<Nurse*>& nurses) {
             getline(cin, delID);
 
             for (auto it = nurses.begin(); it != nurses.end(); ++it) {
-                if (it->getstaffID() == delID) {
+                if ((it*)->getstaffID() == delID) {
                     nurses.erase(it);
                     removed = true;
                     cout << "Nurse removed successfully!\n";
@@ -270,6 +270,7 @@ void menuNurse(vector<Nurse*>& nurses) {
 // Patient
 void menuPatient(vector<Patient>& patients) {
     int choice;
+    
     do {
         cout << "\n===== PATIENT MANAGEMENT MENU =====\n";
         cout << "1. Patient list\n";
@@ -325,7 +326,7 @@ void menuPatient(vector<Patient>& patients) {
             bool removed = false;
 
             for (auto it = patients.begin(); it != patients.end(); ++it) {
-                if (it->getPatientID() == delID) {
+                if ((it*)->getPatientID() == delID) {
                     patients.erase(it);
                     cout << "Patient removed successfully!\n";
                     removed = true;
