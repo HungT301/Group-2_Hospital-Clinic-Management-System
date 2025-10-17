@@ -38,7 +38,7 @@ int main() {
         cout << "0. Exit.\n";
         cout << "Enter choice: ";
         cin >> choice;
-        cin.ignore();
+
 
         switch (choice) {
             case 1: menuDoctor(doctors); break;
@@ -169,7 +169,7 @@ void menuNurse(vector<Nurse>& nurses) {
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-        cin.ignore(); // tránh trôi dòng
+
 
         if (choice == 1) {
             cout << "\n===== NURSE LIST =====\n";
