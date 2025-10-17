@@ -517,7 +517,10 @@ void menuTreatment(vector<Treatment*>& treatments) {
                  << setw(10) << "Cost" << endl;
             cout << string(80, '-') << endl;
 
-            for (auto& t : treatments) t->in();
+            for (auto& t : treatments) {
+                t->in();
+                cout << endl;
+            }
 
         } else if (choice == 2) {
             Treatment* t = new Treatment();
@@ -542,6 +545,7 @@ void menuTreatment(vector<Treatment*>& treatments) {
                          << setw(10) << "Cost" << endl;
                     cout << string(80, '-') << endl;
                     t->in();
+                    cout << endl;
                     found = true;
                     break;
                 }
@@ -556,8 +560,8 @@ void menuTreatment(vector<Treatment*>& treatments) {
 
             for (auto it = treatments.begin(); it != treatments.end(); ++it) {
                 if ((*it)->getID() == delID) {
-                    delete *it;
-                    treatments.erase(it);
+                    delete *it;                 // giải phóng bộ nhớ
+                    treatments.erase(it);       // xóa con trỏ khỏi vector
                     removed = true;
                     cout << "Treatment removed successfully!\n";
                     break;
