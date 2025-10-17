@@ -16,7 +16,10 @@ void Medication::nhap() {
 
 void Medication::in() const {
     Treatment::in();
-    cout << " " << soLuong << " " << fixed << setprecision(2) << giaMoiDonVi << " " << tinhChiPhi() << endl;
+    cout << left
+         << soLuong 
+         << fixed << setprecision(2) << giaMoiDonVi
+         << tinhChiPhi() << endl;
 }
 
 double Medication::tinhChiPhi() const {
@@ -37,7 +40,10 @@ void Surgery::nhap() {
 
 void Surgery::in() const {
     Treatment::in();
-    cout << " " << fixed << setprecision(2) << phiBacSi << " " << chiPhiThietBi << " " << tinhChiPhi() << endl;
+    cout << left 
+         << fixed << setprecision(2) << phiBacSi
+         << fixed << setprecision(2) << chiPhiThietBi 
+         << tinhChiPhi() << endl;
 }
 
 double Surgery::tinhChiPhi() const {
@@ -58,7 +64,10 @@ void Therapy::nhap() {
 
 void Therapy::in() const {
     Treatment::in();
-    cout << " " << soBuoi << " " << fixed << setprecision(2) << giaMoiBuoi << " " << tinhChiPhi() << endl;
+    cout << left
+         << soBuoi 
+         << fixed << setprecision(2) << giaMoiBuoi 
+         << tinhChiPhi() << endl;
 }
 
 double Therapy::tinhChiPhi() const {

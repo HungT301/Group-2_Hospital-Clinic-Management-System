@@ -1,6 +1,7 @@
 #include "Staff.hpp"
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Staff::Staff() {}
@@ -12,7 +13,8 @@ void Staff::nhap() {
 }
 
 void Staff::in() const {
-    cout << staffID << " ";
+    cout << left
+         << setw(10) << staffID;
     Person::in();
 }
 

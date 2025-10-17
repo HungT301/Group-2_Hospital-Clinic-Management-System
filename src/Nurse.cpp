@@ -1,6 +1,7 @@
 #include "Nurse.hpp"
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Nurse :: Nurse(){}
@@ -37,17 +38,29 @@ void Nurse :: nhap(){
 
 void Nurse :: in() const {
   Staff :: in();
-  cout << endl;
-  cout << "-----Schedule-----\n";
+
+  string allShifts;
   for (int i = 0; i < shifts.size(); i++) {
-    cout << "Shift: " << shifts[i] << endl;
-    cout << "Oncall Room: ";
-    for (const string& r : onCallRooms[i])
-        cout << r << " ";
-    cout << endl;
+    allShifts += shifts[i];
+    if (i != shifts.size() - 1) allShifts += ", ";
   }
 
+  string allRooms;
+  for (int i = 0; i < onCallRooms.size(); i++) {
+    allRooms += "[";
+    for (int j = 0; j < onCallRooms[i].size(); j++) {
+      allRooms += onCallRooms[i][j];
+      if (j != onCallRooms[i].size() - 1) allRooms += ", ";
+    }
+      allRooms += "]";
+      if (i != onCallRooms.size() - 1) allRooms += " ";
+    }
+
+    cout << left
+         << setw(25) << allShifts
+         << setw(50) << allRooms << endl;
 }
+
 
 
 

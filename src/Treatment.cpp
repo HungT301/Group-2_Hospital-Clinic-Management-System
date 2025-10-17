@@ -20,7 +20,16 @@ void Treatment::nhap() {
 }
 
 void Treatment::in() const {
-    cout << id << " " << patientId << " " << doctorId << " " << moTa << " " << fixed << setprecision(2) << tinhChiPhi();
+    cout << left
+         << setw(10) << id
+         << setw(10) << patientId
+         << setw(10) << doctorId
+         << setw(20) << moTa
+         << setw(15) << fixed << setprecision(2) << baseCost;
+}
+
+string Treatment::getID() const {
+    return id;
 }
 
 double Treatment::tinhChiPhi() const {
