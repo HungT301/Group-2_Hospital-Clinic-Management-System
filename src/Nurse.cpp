@@ -9,43 +9,46 @@ void Nurse :: nhap(){
   Staff::nhap();
 
   int numShifts;
-    cout << "Nhap so luong ca lam: ";
+    cout << " the number of Shifts: ";
     cin >> numShifts;
-    cin.ignore(); 
-
-    for (int i = 0; i < numShifts; i++) {
-        string shift;
-        cout << "  Nhap ca lam thu " << i + 1 << ": ";
-        getline(cin, shift);
-        shifts.push_back(shift);
-    }
+    cin.ignore();
+  
+  for (int i = 0; i < numShifts; i++) {
+    string shift;
+    cout << "Shift" << i + 1 << ": ";
+    getline(cin, shift);
+    shifts.push_back(shift);
 
     int numRooms;
-    cout << "Nhap so luong phong truc: ";
+    cout << " the number of Oncall Rooms: ";
     cin >> numRooms;
     cin.ignore();
 
-    for (int i = 0; i < numRooms; i++) {
+    vector<string> rooms;
+    for (int j = 0; j < numRooms; j++) {
         string room;
-        cout << "  Nhap phong truc thu " << i + 1 << ": ";
+        cout << "   " << j + 1 << ": ";
         getline(cin, room);
-        onCallRooms.push_back(room);
-    }
+        rooms.push_back(room);
+      }
+    onCallRooms.push_back(rooms);
+  }
 }
 
 void Nurse :: in() const {
   Staff :: in();
   cout << endl;
-  cout << "Cac ca lam:\n";
-  for (const string& s : shifts){
-    cout << "  - " << s << endl;
-  };
-  
-  cout << "Phong truc:\n";
-  for (const string& r : onCallRooms){
-        cout << "  - " << r << endl;
+  cout << "-----Schedule-----\n";
+  for (int i = 0; i < shifts.size(); i++) {
+    cout << "Shift: " << shifts[i] << endl;
+    cout << "Oncall Room: ";
+    for (const string& r : onCallRooms[i])
+        cout << r << " ";
+    cout << endl;
   }
+
 }
+
 
 
 
