@@ -21,9 +21,9 @@ void menuTreatment(vector<Treatment*>& treatments);
 // Main
 int main() {
 
-    vector<Doctor*> doctors;
-    vector<Nurse*> nurses;
-    vector<Patient*> patients;
+    vector<Doctor> doctors;
+    vector<Nurse> nurses;
+    vector<Patient> patients;
     vector<Appointment*> appointments;
     vector<Treatment*> treatments;
 
@@ -61,7 +61,7 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor*>& doctors) {
+void menuDoctor(vector<Doctor>& doctors) {
     int choice;
     do {
         cout << "\n===== DOCTOR MANAGEMENT MENU =====\n";
@@ -74,7 +74,6 @@ void menuDoctor(vector<Doctor*>& doctors) {
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-        cin.ignore();
 
         if (choice == 1) {
             cout << "\n===== DOCTOR LIST =====\n";
@@ -156,7 +155,7 @@ void menuDoctor(vector<Doctor*>& doctors) {
 }
 
 // Nurse
-void menuNurse(vector<Nurse*>& nurses) {
+void menuNurse(vector<Nurse>& nurses) {
     int choice;
     do {
         cout << "\n===== NURSE MANAGEMENT MENU =====\n";
@@ -169,8 +168,7 @@ void menuNurse(vector<Nurse*>& nurses) {
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-        cin.ignore();
-
+        
         if (choice == 1) {
             cout << "\n===== NURSE LIST =====\n";
             cout << left
@@ -251,7 +249,7 @@ void menuNurse(vector<Nurse*>& nurses) {
 }
 
 // Patient
-void menuPatient(vector<Patient*>& patient) {}
+void menuPatient(vector<Patient>& patient) {}
 
 // Appointment
 void menuAppointment(vector<Appointment*>& appointments) {
