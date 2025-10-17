@@ -61,7 +61,7 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor>& doctors) {
+void menuDoctor(vector<Doctor*>& doctors) {
     int choice;
 
     do {
