@@ -193,7 +193,7 @@ void menuNurse(vector<Nurse*>& nurses) {
             for (auto &n : nurses) n->in();
 
         } else if (choice == 2) {
-            Nurse n;
+            Nurse* n;
             n->nhap();
             nurses.push_back(n);
             cout << "Nurse added successfully!\n";
