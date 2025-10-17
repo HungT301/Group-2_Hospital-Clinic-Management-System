@@ -267,7 +267,7 @@ void menuNurse(vector<Nurse*>& nurses) {
 }
 
 // Patient
-void menuPatient(vector<Patient*>& patient) {}
+void menuPatient(vector<Patient*>& patients) {}
 int choice;
     do {
         cout << "\n===== PATIENT MANAGEMENT MENU =====\n";
@@ -292,7 +292,7 @@ int choice;
                  << setw(20) << "Symptom"
                  << setw(20) << "Diagnosis" << endl;
             cout << string(110, '-') << endl;
-            for (auto& p : patient) p.in();
+            for (auto& p : patients) p.in();
 
         } else if (choice == 2) {
             Patient p;
