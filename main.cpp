@@ -268,6 +268,90 @@ void menuNurse(vector<Nurse*>& nurses) {
 
 // Patient
 void menuPatient(vector<Patient*>& patient) {}
+int choice;
+    do {
+        cout << "\n===== PATIENT MANAGEMENT MENU =====\n";
+        cout << "1. Patient list\n";
+        cout << "2. Add new patient\n";
+        cout << "3. Search patient by ID\n";
+        cout << "4. Remove patient\n";
+        cout << "5. Update patient information\n";
+        cout << "0. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+        cin.ignore();
+
+        if (choice == 1) {
+            cout << "\n===== PATIENT LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(20) << "Name"
+                 << setw(15) << "DOB"
+                 << setw(10) << "Gender"
+                 << setw(15) << "Phone"
+                 << setw(20) << "Symptom"
+                 << setw(20) << "Diagnosis" << endl;
+            cout << string(110, '-') << endl;
+            for (auto& p : patients) p.in();
+
+        } else if (choice == 2) {
+            Patient p;
+            p.nhap();
+            patients.push_back(p);
+            cout << "Patient added successfully!\n";
+
+        } else if (choice == 3) {
+            string searchID;
+            cout << "Enter Patient ID to search: ";
+            getline(cin, searchID);
+            bool found = false;
+
+            for (auto& p : patients) {
+                if (p.getPatientID() == searchID) {
+                    cout << "\nPatient found:\n";
+                    p.in();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) cout << "Patient ID not found!\n";
+
+        } else if (choice == 4) {
+            string delID;
+            cout << "Enter Patient ID to remove: ";
+            getline(cin, delID);
+            bool removed = false;
+
+            for (auto it = patients.begin(); it != patients.end(); ++it) {
+                if (it->getPatientID() == delID) {
+                    patients.erase(it);
+                    cout << "Patient removed successfully!\n";
+                    removed = true;
+                    break;
+                }
+            }
+            if (!removed) cout << "Invalid Patient ID!\n";
+
+        } else if (choice == 5) {
+            string updateID;
+            cout << "Enter Patient ID to update: ";
+            getline(cin, updateID);
+            bool updated = false;
+
+            for (auto &p : patients) {
+                if (p.getPatientID() == updateID) {
+                    cout << "\nEnter new information:\n";
+                    p.nhap();
+                    cout << "Patient information updated successfully!\n";
+                    updated = true;
+                    break;
+                }
+            }
+            if (!updated) cout << "Invalid Patient ID!\n";
+        }
+
+    } while (choice != 0);
+}
 
 // Appointment
 void menuAppointment(vector<Appointment*>& appointments) {
