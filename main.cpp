@@ -61,8 +61,9 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor*>& doctors) {
+void menuDoctor(vector<Doctor>& doctors) {
     int choice;
+
     do {
         cout << "\n===== DOCTOR MANAGEMENT MENU =====\n";
         cout << "1. Doctor list\n";
@@ -70,11 +71,11 @@ void menuDoctor(vector<Doctor*>& doctors) {
         cout << "3. Search doctor by ID\n";
         cout << "4. Remove doctor\n";
         cout << "5. Update doctor information\n";
-        cout << "6. Doctor schedule list\n"; 
+        cout << "6. Show schedule list\n";
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-        cin.ignore();
+        cin.ignore(); 
 
         if (choice == 1) {
             cout << "\n===== DOCTOR LIST =====\n";
@@ -85,24 +86,32 @@ void menuDoctor(vector<Doctor*>& doctors) {
                  << setw(15) << "Phone"
                  << setw(15) << "Email" << endl;
             cout << string(75, '-') << endl;
-            for (auto &d : doctors) d.display();
+
+            for (auto &d : doctors) d.in();
 
         } else if (choice == 2) {
             Doctor d;
-            d.input();
+            d.nhap();
             doctors.push_back(d);
             cout << "Doctor added successfully!\n";
 
         } else if (choice == 3) {
+            bool found = false;
             string searchID;
             cout << "Enter Doctor ID to search: ";
             getline(cin, searchID);
-            bool found = false;
 
             for (auto &d : doctors) {
                 if (d.getID() == searchID) {
-                    cout << "\nDoctor found:\n";
-                    d.display();
+                    cout << "\n===== DOCTOR FOUND =====\n";
+                    cout << left
+                         << setw(10) << "ID"
+                         << setw(20) << "Name"
+                         << setw(15) << "Specialty"
+                         << setw(15) << "Phone"
+                         << setw(15) << "Email" << endl;
+                    cout << string(75, '-') << endl;
+                    d.in();
                     found = true;
                     break;
                 }
@@ -110,12 +119,12 @@ void menuDoctor(vector<Doctor*>& doctors) {
             if (!found) cout << "Doctor ID not found!\n";
 
         } else if (choice == 4) {
+            bool removed = false;
             string delID;
             cout << "Enter Doctor ID to remove: ";
             getline(cin, delID);
-            bool removed = false;
 
-            for (auto it = doctors.begin(); it != doctors.end(); it++) {
+            for (auto it = doctors.begin(); it != doctors.end(); ++it) {
                 if (it->getID() == delID) {
                     doctors.erase(it);
                     removed = true;
@@ -126,15 +135,15 @@ void menuDoctor(vector<Doctor*>& doctors) {
             if (!removed) cout << "Invalid Doctor ID!\n";
 
         } else if (choice == 5) {
+            bool updated = false;
             string updateID;
             cout << "Enter Doctor ID to update: ";
             getline(cin, updateID);
-            bool updated = false;
 
             for (auto &d : doctors) {
                 if (d.getID() == updateID) {
                     cout << "Enter new information for this doctor:\n";
-                    d.input();
+                    d.nhap();
                     cout << "Doctor updated successfully!\n";
                     updated = true;
                     break;
@@ -144,14 +153,12 @@ void menuDoctor(vector<Doctor*>& doctors) {
 
         } else if (choice == 6) {
             cout << "\n===== DOCTOR SCHEDULE LIST =====\n";
-            cout << left
-                 << setw(10) << "ID"
-                 << setw(20) << "Name"
-                 << setw(15) << "Specialty"
-                 << setw(30) << "Schedule" << endl;
-            cout << string(75, '-') << endl;
-            for (auto &d : doctors) d.showSchedule();
-        }   
+            for (auto &d : doctors) {
+                d.in();
+                cout << string(50, '-') << endl;
+            }
+        }
+
     } while (choice != 0);
 }
 
