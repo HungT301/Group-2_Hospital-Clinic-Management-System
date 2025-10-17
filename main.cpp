@@ -21,9 +21,9 @@ void menuTreatment(vector<Treatment*>& treatments);
 // Main
 int main() {
 
-    vector<Doctor> doctors;
-    vector<Nurse> nurses;
-    vector<Patient> patients;
+    vector<Doctor*> doctors;
+    vector<Nurse*> nurses;
+    vector<Patient*> patients;
     vector<Appointment*> appointments;
     vector<Treatment*> treatments;
 
