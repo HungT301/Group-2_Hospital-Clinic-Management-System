@@ -61,7 +61,7 @@ int main() {
 // Menu function deploy
 
 // Doctor
-void menuDoctor(vector<Doctor>& doctors) {
+void menuDoctor(vector<Doctor*>& doctors) {
     int choice;
     do {
         cout << "\n===== DOCTOR MANAGEMENT MENU =====\n";
@@ -156,7 +156,7 @@ void menuDoctor(vector<Doctor>& doctors) {
 }
 
 // Nurse
-void menuNurse(vector<Nurse>& nurses) {
+void menuNurse(vector<Nurse*>& nurses) {
     int choice;
     do {
         cout << "\n===== NURSE MANAGEMENT MENU =====\n";
@@ -251,7 +251,7 @@ void menuNurse(vector<Nurse>& nurses) {
 }
 
 // Patient
-void menuPatient(vector<Patient>& patient) {}
+void menuPatient(vector<Patient*>& patient) {}
 
 // Appointment
 void menuAppointment(vector<Appointment*>& appointments) {
