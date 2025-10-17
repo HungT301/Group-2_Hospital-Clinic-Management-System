@@ -292,7 +292,7 @@ int choice;
                  << setw(20) << "Symptom"
                  << setw(20) << "Diagnosis" << endl;
             cout << string(110, '-') << endl;
-            for (auto& p : patients) p.in();
+            for (auto& p : patient) p.in();
 
         } else if (choice == 2) {
             Patient p;
