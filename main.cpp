@@ -156,7 +156,99 @@ void menuDoctor(vector<Doctor>& doctors) {
 }
 
 // Nurse
-void menuNurse(vector<Nurse>& nurses) {}
+void menuNurse(vector<Nurse>& nurses) {
+    int choice;
+    do {
+        cout << "\n===== NURSE MANAGEMENT MENU =====\n";
+        cout << "1. Nurse list\n";
+        cout << "2. Add new nurse\n";
+        cout << "3. Search nurse by ID\n";
+        cout << "4. Remove nurse\n";
+        cout << "5. Update nurse information\n";
+        cout << "6. Show shifts & on-call rooms\n";
+        cout << "0. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+        cin.ignore();
+
+        if (choice == 1) {
+            cout << "\n===== NURSE LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(20) << "Name"
+                 << setw(15) << "Position"
+                 << setw(15) << "Phone"
+                 << setw(15) << "Email" << endl;
+            cout << string(75, '-') << endl;
+
+            for (auto &n : nurses)
+                n.in();
+
+        } else if (choice == 2) {
+            Nurse n;
+            n.nhap();
+            nurses.push_back(n);
+            cout << "Nurse added successfully!\n";
+
+        } else if (choice == 3) {
+            string searchID;
+            cout << "Enter Nurse ID to search: ";
+            getline(cin, searchID);
+            bool found = false;
+
+            for (auto &n : nurses) {
+                if (n.getID() == searchID) { // yêu cầu Staff/Nurse có hàm getID()
+                    cout << "\nNurse found:\n";
+                    n.in();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) cout << "Nurse ID not found!\n";
+
+        } else if (choice == 4) {
+            string delID;
+            cout << "Enter Nurse ID to remove: ";
+            getline(cin, delID);
+            bool removed = false;
+
+            for (auto it = nurses.begin(); it != nurses.end(); ++it) {
+                if (it->getID() == delID) {
+                    nurses.erase(it);
+                    removed = true;
+                    cout << "Nurse removed successfully!\n";
+                    break;
+                }
+            }
+            if (!removed) cout << "Invalid Nurse ID!\n";
+
+        } else if (choice == 5) {
+            string updateID;
+            cout << "Enter Nurse ID to update: ";
+            getline(cin, updateID);
+            bool updated = false;
+
+            for (auto &n : nurses) {
+                if (n.getID() == updateID) {
+                    cout << "Enter new information for this nurse:\n";
+                    n.nhap();
+                    cout << "Nurse updated successfully!\n";
+                    updated = true;
+                    break;
+                }
+            }
+            if (!updated) cout << "Invalid Nurse ID!\n";
+
+        } else if (choice == 6) {
+            cout << "\n===== NURSE SHIFTS & ROOMS =====\n";
+            for (auto &n : nurses) {
+                n.in();
+                cout << string(50, '-') << endl;
+            }
+        }
+
+    } while (choice != 0);
+}}
 
 // Patient
 void menuPatient(vector<Patient>& patient) {}
