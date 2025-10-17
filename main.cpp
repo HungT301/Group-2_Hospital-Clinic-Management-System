@@ -268,8 +268,8 @@ void menuNurse(vector<Nurse*>& nurses) {
 }
 
 // Patient
-void menuPatient(vector<Patient*>& patients) {}
-int choice;
+void menuPatient(vector<Patient>& patients) {
+    int choice;
     do {
         cout << "\n===== PATIENT MANAGEMENT MENU =====\n";
         cout << "1. Patient list\n";
@@ -293,7 +293,10 @@ int choice;
                  << setw(20) << "Symptom"
                  << setw(20) << "Diagnosis" << endl;
             cout << string(110, '-') << endl;
-            for (auto& p : patients) p.in();
+
+            for (auto& p : patients) {
+                p.in();
+            }
 
         } else if (choice == 2) {
             Patient p;
@@ -339,7 +342,7 @@ int choice;
             getline(cin, updateID);
             bool updated = false;
 
-            for (auto &p : patients) {
+            for (auto& p : patients) {
                 if (p.getPatientID() == updateID) {
                     cout << "\nEnter new information:\n";
                     p.nhap();
