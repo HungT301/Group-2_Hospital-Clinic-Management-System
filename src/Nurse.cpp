@@ -23,7 +23,7 @@ void Nurse :: nhap(){
         cout << "  Enter shift : ";
         getline(cin, s.shifts);
         cout << "  Enter on-call room: ";
-        getline(cin, s.omcallRooms);
+        getline(cin, s.oncallRooms);
 
     schedule.push_back(s);
 
@@ -41,7 +41,7 @@ void Nurse :: in() const {
     cout << string(42, '-') << endl;
 }
 
-void Nurse::display() const {
+void Nurse :: display() const {
     cout << "\n===== NURSE SCHEDULE =====\n";
     cout << left
          << setw(12) << "Day"
@@ -59,5 +59,6 @@ void Nurse::display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
