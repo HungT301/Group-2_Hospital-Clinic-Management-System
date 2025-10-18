@@ -82,9 +82,10 @@ void menuDoctor(vector<Doctor>& doctors) {
             cout << left
                  << setw(10) << "ID"
                  << setw(20) << "Name"
-                 << setw(15) << "Specialty"
+                 << setw(15) << "DOB"
+                 << setw(15) << "Gender"
                  << setw(15) << "Phone"
-                 << setw(15) << "Email" << endl;
+                 << setw(15) << "Specialty" << endl;
             cout << string(75, '-') << endl;
 
             for (auto &d : doctors) d.in();
