@@ -511,41 +511,51 @@ void menuTreatment(vector<Treatment*>& treatments) {
             cout << "\n===== TREATMENT LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(15) << "Patient ID"
-                 << setw(15) << "Doctor ID"
-                 << setw(30) << "Description"
-                 << setw(10) << "Cost" << endl;
-            cout << string(80, '-') << endl;
+                 << setw(10) << "PatientID"
+                 << setw(10) << "DoctorID"
+                 << setw(20) << "Description"
+                 << setw(15) << "BaseCost"
+                 << setw(15) << "Detail1"
+                 << setw(15) << "Detail2"
+                 << setw(15) << "TotalCost" << endl;
+            cout << string(120, '-') << endl;
 
-            for (auto& t : treatments) {
-                t->in();
-                cout << endl;
-            }
+            for (auto& t : treatments) t->in();
 
         } else if (choice == 2) {
-            Treatment* t = new Treatment();
+            int typeChoice;
+            cout << "\nSelect treatment type:\n";
+            cout << "1. Medication\n";
+            cout << "2. Surgery\n";
+            cout << "3. Therapy\n";
+            cout << "Enter choice: ";
+            cin >> typeChoice;
+            cin.ignore();
+
+            Treatment* t = nullptr;
+
+            if (typeChoice == 1) t = new Medication();
+            else if (typeChoice == 2) t = new Surgery();
+            else if (typeChoice == 3) t = new Therapy();
+            else {
+                cout << "Invalid type!\n";
+                continue;
+            }
+
             t->nhap();
             treatments.push_back(t);
             cout << "Treatment added successfully!\n";
 
         } else if (choice == 3) {
-            bool found = false;
             string searchID;
             cout << "Enter Treatment ID to search: ";
             getline(cin, searchID);
+            bool found = false;
 
             for (auto& t : treatments) {
                 if (t->getID() == searchID) {
-                    cout << "\n===== TREATMENT FOUND =====\n";
-                    cout << left
-                         << setw(10) << "ID"
-                         << setw(15) << "Patient ID"
-                         << setw(15) << "Doctor ID"
-                         << setw(30) << "Description"
-                         << setw(10) << "Cost" << endl;
-                    cout << string(80, '-') << endl;
+                    cout << "\nTreatment found:\n";
                     t->in();
-                    cout << endl;
                     found = true;
                     break;
                 }
@@ -553,33 +563,33 @@ void menuTreatment(vector<Treatment*>& treatments) {
             if (!found) cout << "Treatment ID not found!\n";
 
         } else if (choice == 4) {
-            bool removed = false;
             string delID;
             cout << "Enter Treatment ID to remove: ";
             getline(cin, delID);
+            bool removed = false;
 
             for (auto it = treatments.begin(); it != treatments.end(); ++it) {
                 if ((*it)->getID() == delID) {
-                    delete *it;                 // giải phóng bộ nhớ
-                    treatments.erase(it);       // xóa con trỏ khỏi vector
-                    removed = true;
+                    delete *it;
+                    treatments.erase(it);
                     cout << "Treatment removed successfully!\n";
+                    removed = true;
                     break;
                 }
             }
             if (!removed) cout << "Invalid Treatment ID!\n";
 
         } else if (choice == 5) {
-            bool updated = false;
             string updateID;
             cout << "Enter Treatment ID to update: ";
             getline(cin, updateID);
+            bool updated = false;
 
             for (auto& t : treatments) {
                 if (t->getID() == updateID) {
-                    cout << "Enter new information for this treatment:\n";
+                    cout << "\nEnter new information:\n";
                     t->nhap();
-                    cout << "Treatment updated successfully!\n";
+                    cout << "Treatment information updated successfully!\n";
                     updated = true;
                     break;
                 }
