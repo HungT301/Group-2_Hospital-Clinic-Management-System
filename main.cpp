@@ -7,7 +7,7 @@
 #include "Patient.hpp"
 #include "Appointment.hpp"
 #include "AppointmentType.hpp"
-#include "Include/Treatment.hpp"
+#include "Treatment.hpp"
 #include "TreatmentType.hpp"
 using namespace std;
 
