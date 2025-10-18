@@ -29,11 +29,11 @@ void Doctor::nhap() {
 void Doctor::in() const {
     cout << left
          << setw(10) << ID
-         << setw(20) << name
-         << setw(15) << dob
-         << setw(15) << gender
-         << setw(15) << phone
-         << setw(15) << specialization
+         << setw(20) << Name
+         << setw(15) << DOB
+         << setw(15) << Gender
+         << setw(15) << Phone
+         << setw(15) << Specialization
          << endl;
 }
 
@@ -41,8 +41,8 @@ void Doctor::display() const {
     cout << "\n===== DOCTOR SCHEDULE =====\n";
     cout << left
          << setw(10) << ID
-         << setw(20) << name
-         << setw(20) << specialization
+         << setw(20) << Name
+         << setw(20) << Specialization
          << endl;
 
     if (schedules.empty()) {
@@ -57,5 +57,6 @@ void Doctor::display() const {
     }
     cout << string(60, '-') << endl;
 }
+
 
 
