@@ -274,9 +274,16 @@ void menuNurse(vector<Nurse>& nurses) {
 
             for (auto &n : nurses) {
                 if (n.getstaffID() == searchID) {
-                    n.display(); 
-                    found = true;
-                    break;
+                     cout << "\n===== NURSE SCHEDULE =====\n";
+                     cout << left
+                          << setw(12) << "Day"
+                          << setw(15) << "Shift"
+                          << setw(15) << "Oncall Room" << endl;
+                    
+                     cout << string(42, '-') << endl;
+                     n.display(); 
+                     found = true;
+                     break;
                 }
             }
             if (!found) cout << "Nurse ID not found!\n";
