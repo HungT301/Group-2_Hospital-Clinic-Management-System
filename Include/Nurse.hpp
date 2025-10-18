@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-struct schedule {
+struct SCHEDULES {
     string day;      // Thứ (Monday, Tuesday,...)
     string shifts;    // Ca (morning, evening,...)
     string oncallRooms;     // Phòng trực
