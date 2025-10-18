@@ -38,7 +38,7 @@ void Nurse :: in() const {
     cout << string(70, '-') << endl;
   
     Staff :: in();
-    cout << string(42, '-') << endl;
+    cout << string(70, '-') << endl;
 }
 
 void Nurse :: display() const {
@@ -59,6 +59,7 @@ void Nurse :: display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
 
