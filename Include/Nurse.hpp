@@ -13,7 +13,7 @@ struct schedule {
 
 class Nurse : public Staff {
 private:
-	vector<ShiftInfo> schedule;
+	vector<schedule> schedule;
 
 public:
 	Nurse(); // mac dinh bang 0
