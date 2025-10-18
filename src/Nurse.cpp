@@ -29,6 +29,12 @@ void Nurse :: nhap(){
 
 
 void Nurse :: in() const {
+  cout << left
+       << setw(15) << "ID"
+       << setw(15) << "Name"
+       << setw(15) << "DOB"
+       << setw(15) << "Gender"
+       << setw(15) << "Phone" << endl;
   Staff :: in();
 }
 
@@ -50,3 +56,4 @@ void Nurse::display() const {
 
     cout << string(42, '-') << endl;
 }
+
