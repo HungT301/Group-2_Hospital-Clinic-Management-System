@@ -17,9 +17,11 @@ void Staff::in() const {
          << setw(15) << staffID;
     Person::in();
 }
+void Staff::display() const{}
 
 string Staff::getstaffID() const {
     return staffID;
 }
+
 
 
