@@ -289,10 +289,8 @@ void menuNurse(vector<Nurse>& nurses) {
             if (!found) cout << "Nurse ID not found!\n";
         }
 
-        }
-
     } while (choice != 0);
-
+}
 // Patient
 void menuPatient(vector<Patient>& patients) {
     int choice;
