@@ -34,26 +34,10 @@ void Nurse :: nhap(){
 }
     
 void Nurse :: in() const {
-    cout << left
-       << setw(15) << "ID"
-       << setw(15) << "Name"
-       << setw(15) << "DOB"
-       << setw(15) << "Gender"
-       << setw(15) << "Phone" << endl;
-    cout << string(70, '-') << endl;
-  
-    Staff :: in();
-    cout << string(70, '-') << endl;
+   Staff :: in()
 }
 
 void Nurse :: display() const {
-    cout << "\n===== NURSE SCHEDULE =====\n";
-    cout << left
-         << setw(12) << "Day"
-         << setw(15) << "Shift"
-         << setw(15) << "Oncall Room" << endl;
-    cout << string(42, '-') << endl;
-
     for (const auto &s : schedule) {
         cout << left
              << setw(12) << s.day
@@ -64,6 +48,7 @@ void Nurse :: display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
 
