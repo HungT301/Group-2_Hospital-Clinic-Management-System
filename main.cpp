@@ -263,10 +263,7 @@ void menuNurse(vector<Nurse>& nurses) {
 
             for (auto &n : nurses) {
                 if (n.getstaffID() == searchID) {
-                    cout << "\n===== NURSE SCHEDULE =====\n";
-                    n.in(); 
-                    cout << string(40, '-') << endl;
-                    n.showSchedule(); 
+                    n.display(); 
                     found = true;
                     break;
                 }
