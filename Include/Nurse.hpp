@@ -9,7 +9,7 @@ struct schedule {
     string day;      // Thứ (Monday, Tuesday,...)
     string shifts;    // Ca (morning, evening,...)
     string oncallRooms;     // Phòng trực
-}
+};
 
 class Nurse : public Staff {
 private:
