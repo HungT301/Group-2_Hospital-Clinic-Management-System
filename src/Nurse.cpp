@@ -34,7 +34,7 @@ void Nurse :: nhap(){
 }
     
 void Nurse :: in() const {
-   Staff :: in()
+   Staff :: in();
 }
 
 void Nurse :: display() const {
@@ -48,6 +48,7 @@ void Nurse :: display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
 
