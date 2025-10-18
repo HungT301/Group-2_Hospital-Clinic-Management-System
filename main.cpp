@@ -292,7 +292,6 @@ void menuNurse(vector<Nurse>& nurses) {
         }
 
     } while (choice != 0);
-}
 
 // Patient
 void menuPatient(vector<Patient>& patients) {
