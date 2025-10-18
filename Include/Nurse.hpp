@@ -16,6 +16,7 @@ public:
 
 	void nhap();
 	void in() const;
+	void display() const;
 
 };
 
