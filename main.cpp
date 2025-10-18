@@ -155,7 +155,7 @@ void menuDoctor(vector<Doctor>& doctors) {
         } else if (choice == 6) {
             cout << "\n===== DOCTOR SCHEDULE LIST =====\n";
             for (auto &d : doctors) {
-                d.in();
+                d.display();
                 cout << string(50, '-') << endl;
             }
         }
