@@ -15,55 +15,38 @@ void Nurse :: nhap(){
     cin.ignore();
   
   for (int i = 0; i < numShifts; i++) {
-    string shift;
-    cout << "Shift " << i + 1 << ": ";
-    getline(cin, shift);
-    shifts.push_back(shift);
+    ShiftInfo s;
+        cout << "\nShift " << i + 1 << ":\n";
 
-    int numRooms;
-    cout << "Enter the number of Oncall Rooms: ";
-    cin >> numRooms;
-    cin.ignore();
+        cout << "  Enter day: ";
+        getline(cin, s.day);
+        cout << "  Enter shift : ";
+        getline(cin, s.shifts);
+        cout << "  Enter on-call room: ";
+        getline(cin, s.omcallRooms);
 
-    vector<string> rooms;
-    for (int j = 0; j < numRooms; j++) {
-        string room;
-        cout << "Oncall Room " << j + 1 << ": ";
-        getline(cin, room);
-        rooms.push_back(room);
-      }
-    onCallRooms.push_back(rooms);
-  }
-}
+    schedule.push_back(s);
+
 
 void Nurse :: in() const {
   Staff :: in();
-
-  string allShifts;
-  for (int i = 0; i < shifts.size(); i++) {
-    allShifts += shifts[i];
-    if (i != shifts.size() - 1) allShifts += ", ";
-  }
-
-  string allRooms;
-  for (int i = 0; i < onCallRooms.size(); i++) {
-    allRooms += "[";
-    for (int j = 0; j < onCallRooms[i].size(); j++) {
-      allRooms += onCallRooms[i][j];
-      if (j != onCallRooms[i].size() - 1) allRooms += ", ";
-    }
-      allRooms += "]";
-      if (i != onCallRooms.size() - 1) allRooms += " ";
-    }
-
-    cout << left
-         << setw(25) << allShifts
-         << setw(50) << allRooms << endl;
 }
 
+void Nurse::display() const {
+    cout << "\n===== NURSE SCHEDULE =====\n";
+    cout << left
+         << setw(12) << "Day"
+         << setw(15) << "Shift"
+         << setw(15) << "Oncall Room" << endl;
+    cout << string(42, '-') << endl;
 
+    for (const auto &s : schedule) {
+        cout << left
+             << setw(12) << s.day
+             << setw(15) << s.shifts
+             << setw(15) << s.oncallRooms
+             << endl;
+    }
 
-
-
-
-
+    cout << string(42, '-') << endl;
+}

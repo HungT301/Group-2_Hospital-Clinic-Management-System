@@ -19,8 +19,8 @@ void Person::nhap() {
 
 void Person::in() const {
 	cout << left
-		 << setw(10) << name
-		 << setw(12) << DOB
-		 << setw(10) << gender
+		 << setw(15) << name
+		 << setw(15) << DOB
+		 << setw(15) << gender
 		 << setw(15) << phone;
 }

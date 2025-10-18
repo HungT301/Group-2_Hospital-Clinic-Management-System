@@ -5,17 +5,22 @@
 #include <vector>
 using namespace std;
 
+struct ShiftInfo {
+    string day;      // Thứ (Monday, Tuesday,...)
+    string shifts;    // Ca (morning, evening,...)
+    string oncallRooms;     // Phòng trực
+}
+
 class Nurse : public Staff {
 private:
-	vector<vector<string>> onCallRooms; // phòng trực
-	vector<string> shifts; // ca trực
-
+	vector<ShiftInfo> schedule;
 
 public:
 	Nurse(); // mac dinh bang 0
 
 	void nhap();
 	void in() const;
+	void display() const;
 
 };
 

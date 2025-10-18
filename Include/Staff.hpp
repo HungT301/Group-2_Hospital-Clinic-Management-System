@@ -12,7 +12,8 @@ public:
 	Staff(); //mac dinh cac tham so =0
 
 	void nhap();
-	void in() const;
+	void in() const; // in cac thong tin co ban
+	virtual void display() const; // in schedule cua nurse va doctor
 
 	string getstaffID() const; // lay ID de tim kiem
 };
