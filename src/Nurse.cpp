@@ -26,8 +26,8 @@ void Nurse :: nhap(){
         getline(cin, s.oncallRooms);
 
     schedule.push_back(s);
-
-
+ }
+    
 void Nurse :: in() const {
     cout << left
        << setw(15) << "ID"
@@ -59,6 +59,7 @@ void Nurse :: display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
 
