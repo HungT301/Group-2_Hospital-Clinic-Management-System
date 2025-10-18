@@ -15,7 +15,7 @@ void Nurse :: nhap(){
     cin.ignore();
   
   for (int i = 0; i < numShifts; i++) {
-    schedule s;
+    SCHEDULES s;
         cout << "\nShift " << i + 1 << ":\n";
 
         cout << "  Enter day: ";
@@ -59,6 +59,7 @@ void Nurse :: display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
 
