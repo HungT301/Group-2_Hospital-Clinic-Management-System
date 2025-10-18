@@ -153,13 +153,23 @@ void menuDoctor(vector<Doctor>& doctors) {
             if (!updated) cout << "Invalid Doctor ID!\n";
 
         } else if (choice == 6) {
-            cout << "\n===== DOCTOR SCHEDULE LIST =====\n";
-            for (auto &d : doctors) {
-                d.display();
-                cout << string(50, '-') << endl;
-            }
-        }
+    string searchID;
+    bool found = false;
 
+    cout << "Enter Doctor ID to view schedule: ";
+    getline(cin, searchID);
+
+    for (auto &d : doctors) {
+        if (d.getstaffID() == searchID) {
+            cout << "\n===== SCHEDULE OF DOCTOR =====\n";
+            d.display();
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) cout << "Doctor ID not found!\n";
+}
     } while (choice != 0);
 }
 
