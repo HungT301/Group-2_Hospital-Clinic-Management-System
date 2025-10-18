@@ -11,6 +11,7 @@ protected:
 	string doctorId;
 	string moTa;
 	double baseCost;
+	string treatmentType;
 
 public:
 	Treatment();
@@ -19,6 +20,7 @@ public:
 	virtual void in() const;
 	virtual double tinhChiPhi() const;
 
+	string getType() const;
 	string getID() const;
 
 	virtual ~Treatment() {}

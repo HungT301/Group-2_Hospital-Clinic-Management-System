@@ -28,6 +28,10 @@ void Treatment::in() const {
          << setw(15) << fixed << setprecision(2) << baseCost;
 }
 
+string Treatment::getType() const {
+    return treatmentType;
+}
+
 string Treatment::getID() const {
     return id;
 }

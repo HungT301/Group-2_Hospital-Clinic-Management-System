@@ -3,7 +3,9 @@
 #include <iomanip>
 using namespace std;
 
-Medication::Medication() {}
+Medication::Medication() {
+    treatmentType = "Medication";
+}
 
 void Medication::nhap() {
     Treatment::nhap();
@@ -27,7 +29,9 @@ double Medication::tinhChiPhi() const {
     return total;
 }
 
-Surgery::Surgery() : Treatment() {}
+Surgery::Surgery() {
+    treatmentType = "Surgery";
+}
 
 void Surgery::nhap() {
     Treatment::nhap();
@@ -51,7 +55,9 @@ double Surgery::tinhChiPhi() const {
     return total;
 }
 
-Therapy::Therapy() : Treatment() {}
+Therapy::Therapy() {
+    treatmentType = "Therapy";
+}
 
 void Therapy::nhap() {
     Treatment::nhap();
