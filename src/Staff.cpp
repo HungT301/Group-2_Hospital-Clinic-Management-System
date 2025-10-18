@@ -14,11 +14,12 @@ void Staff::nhap() {
 
 void Staff::in() const {
     cout << left
-         << setw(10) << staffID;
+         << setw(15) << staffID;
     Person::in();
 }
 
 string Staff::getstaffID() const {
     return staffID;
 }
+
 
