@@ -13,6 +13,8 @@ void Nurse :: nhap(){
     cout << "Enter the number of Shifts: ";
     cin >> numShifts;
     cin.ignore();
+
+  schedule.clear(); 
   
   for (int i = 0; i < numShifts; i++) {
     SCHEDULES s;
@@ -20,8 +22,10 @@ void Nurse :: nhap(){
 
         cout << "  Enter day: ";
         getline(cin, s.day);
+    
         cout << "  Enter shift : ";
         getline(cin, s.shifts);
+    
         cout << "  Enter on-call room: ";
         getline(cin, s.oncallRooms);
 
@@ -60,6 +64,7 @@ void Nurse :: display() const {
 
     cout << string(42, '-') << endl;
 }
+
 
 
 
