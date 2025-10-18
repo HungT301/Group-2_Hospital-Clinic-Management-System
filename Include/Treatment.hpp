@@ -19,6 +19,7 @@ public:
 	virtual void nhap();
 	virtual void in() const;
 	virtual double tinhChiPhi() const;
+	void sumary() const;
 
 	string getType() const;
 	string getID() const;

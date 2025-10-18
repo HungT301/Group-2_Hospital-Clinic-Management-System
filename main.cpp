@@ -498,76 +498,123 @@ void menuTreatment(vector<Treatment*>& treatments) {
     do {
         cout << "\n===== TREATMENT MANAGEMENT MENU =====\n";
         cout << "1. Treatment list\n";
-        cout << "2. Add new treatment\n";
-        cout << "3. Search treatment by ID\n";
-        cout << "4. Remove treatment\n";
-        cout << "5. Update treatment information\n";
+        cout << "2. Treatment list by type\n";
+        cout << "3. Add Medication\n";
+        cout << "4. Add Surgery\n";
+        cout << "5. Add Therapy\n";
+        cout << "6. Search treatment by ID\n";
+        cout << "7. Remove treatment\n";
         cout << "0. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
         cin.ignore();
 
         if (choice == 1) {
-            cout << "\n===== TREATMENT LIST =====\n";
+            cout << "\n===== ALL TREATMENTS =====\n";
             cout << left
+                 << setw(12) << "Type"
                  << setw(10) << "ID"
-                 << setw(10) << "PatientID"
-                 << setw(10) << "DoctorID"
-                 << setw(20) << "Description"
-                 << setw(15) << "BaseCost"
-                 << setw(15) << "Detail1"
-                 << setw(15) << "Detail2"
-                 << setw(15) << "TotalCost" << endl;
-            cout << string(120, '-') << endl;
+                 << setw(12) << "Patient ID"
+                 << setw(12) << "Doctor ID"
+                 << setw(25) << "Description"
+                 << setw(12) << "Base Cost" << endl;
+            cout << string(83, '-') << endl;
 
-            for (auto& t : treatments) t->in();
+            for (auto &t : treatments) t->sumary();
 
         } else if (choice == 2) {
-            int typeChoice;
-            cout << "\nSelect treatment type:\n";
-            cout << "1. Medication\n";
-            cout << "2. Surgery\n";
-            cout << "3. Therapy\n";
-            cout << "Enter choice: ";
-            cin >> typeChoice;
-            cin.ignore();
+            cout << "\n===== MEDICATION LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(12) << "Patient ID"
+                 << setw(12) << "Doctor ID"
+                 << setw(20) << "Description"
+                 << setw(10) << "Quantity"
+                 << setw(15) << "Price/Unit"
+                 << setw(12) << "Total" << endl;
+            cout << string(91, '-') << endl;
 
-            Treatment* t = nullptr;
+            for (auto& t : treatments)
+                if (t->getType() == "Medication") t->in();
 
-            if (typeChoice == 1) t = new Medication();
-            else if (typeChoice == 2) t = new Surgery();
-            else if (typeChoice == 3) t = new Therapy();
-            else {
-                cout << "Invalid type!\n";
-                continue;
-            }
+            cout << "\n===== SURGERY LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(12) << "Patient ID"
+                 << setw(12) << "Doctor ID"
+                 << setw(20) << "Description"
+                 << setw(15) << "Doctor Fee"
+                 << setw(15) << "Equip. Cost"
+                 << setw(12) << "Total" << endl;
+            cout << string(96, '-') << endl;
 
-            t->nhap();
-            treatments.push_back(t);
-            cout << "Treatment added successfully!\n";
+            for (auto& t : treatments)
+                if (t->getType() == "Surgery") t->in();
+
+            cout << "\n===== THERAPY LIST =====\n";
+            cout << left
+                 << setw(10) << "ID"
+                 << setw(12) << "Patient ID"
+                 << setw(12) << "Doctor ID"
+                 << setw(20) << "Description"
+                 << setw(10) << "Sessions"
+                 << setw(15) << "Price/Session"
+                 << setw(12) << "Total" << endl;
+            cout << string(91, '-') << endl;
+
+            for (auto& t : treatments)
+                if (t->getType() == "Therapy") t->in();
 
         } else if (choice == 3) {
-            string searchID;
-            cout << "Enter Treatment ID to search: ";
-            getline(cin, searchID);
+            Treatment* m = new Medication();
+            m->nhap();
+            treatments.push_back(m);
+            cout << "Medication added successfully!\n";
+
+        } else if (choice == 4) {
+            Treatment* s = new Surgery();
+            s->nhap();
+            treatments.push_back(s);
+            cout << "Surgery added successfully!\n";
+
+        } else if (choice == 5) {
+            Treatment* th = new Therapy();
+            th->nhap();
+            treatments.push_back(th);
+            cout << "Therapy added successfully!\n";
+
+        } else if (choice == 6) {
             bool found = false;
+            string searchID;
+            cout << "Enter treatment ID to search: ";
+            getline(cin, searchID);
 
             for (auto& t : treatments) {
                 if (t->getID() == searchID) {
-                    cout << "\nTreatment found:\n";
+                    cout << "\n===== TREATMENT FOUND =====\n";
+                    cout << left
+                         << setw(12) << "Type"
+                         << setw(10) << "ID"
+                         << setw(12) << "Patient ID"
+                         << setw(12) << "Doctor ID"
+                         << setw(25) << "Description"
+                         << setw(12) << "Base Cost" << endl;
+                    cout << string(83, '-') << endl;
+                    cout << setw(12) << t->getType();
                     t->in();
+                    cout << endl;
                     found = true;
                     break;
                 }
             }
-            if (!found) cout << "Treatment ID not found!\n";
+            if (!found) cout << "Invalid Treatment ID!\n";
 
-        } else if (choice == 4) {
+        } else if (choice == 7) {
             string delID;
-            cout << "Enter Treatment ID to remove: ";
+            cout << "Enter treatment ID to remove: ";
             getline(cin, delID);
-            bool removed = false;
 
+            bool removed = false;
             for (auto it = treatments.begin(); it != treatments.end(); ++it) {
                 if ((*it)->getID() == delID) {
                     delete *it;
@@ -578,23 +625,6 @@ void menuTreatment(vector<Treatment*>& treatments) {
                 }
             }
             if (!removed) cout << "Invalid Treatment ID!\n";
-
-        } else if (choice == 5) {
-            string updateID;
-            cout << "Enter Treatment ID to update: ";
-            getline(cin, updateID);
-            bool updated = false;
-
-            for (auto& t : treatments) {
-                if (t->getID() == updateID) {
-                    cout << "\nEnter new information:\n";
-                    t->nhap();
-                    cout << "Treatment information updated successfully!\n";
-                    updated = true;
-                    break;
-                }
-            }
-            if (!updated) cout << "Invalid Treatment ID!\n";
         }
 
     } while (choice != 0);

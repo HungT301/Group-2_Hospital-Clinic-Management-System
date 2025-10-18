@@ -28,6 +28,16 @@ void Treatment::in() const {
          << setw(15) << fixed << setprecision(2) << baseCost;
 }
 
+void Treatment::sumary() const {
+    cout << left
+         << setw(10) << treatmentType
+         << setw(10) << id
+         << setw(10) << patientId
+         << setw(10) << doctorId
+         << setw(15) << moTa
+         << setw(10) << baseCost << endl;
+}
+
 string Treatment::getType() const {
     return treatmentType;
 }
