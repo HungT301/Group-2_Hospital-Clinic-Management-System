@@ -256,11 +256,23 @@ void menuNurse(vector<Nurse>& nurses) {
             if (!updated) cout << "Invalid Nurse ID!\n";
 
         } else if (choice == 6) {
-            cout << "\n===== NURSE SHIFTS & ON-CALL ROOMS =====\n";
+            string searchID;
+            bool found = false;
+            cout << "Enter Nurse ID to view schedule: ";
+            getline(cin, searchID);
+
             for (auto &n : nurses) {
-                n.in();
-                cout << string(50, '-') << endl;
+                if (n.getstaffID() == searchID) {
+                    cout << "\n===== NURSE SCHEDULE =====\n";
+                    n.in(); 
+                    cout << string(40, '-') << endl;
+                    n.showSchedule(); 
+                    found = true;
+                    break;
+                }
             }
+            if (!found) cout << "Nurse ID not found!\n";
+        }
 
         }
 
