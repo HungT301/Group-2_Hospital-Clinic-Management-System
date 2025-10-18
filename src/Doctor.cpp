@@ -33,7 +33,7 @@ void Doctor::in() const {
          << setw(15) << dob
          << setw(15) << gender
          << setw(15) << phone
-         << setw(20) << specialization
+         << setw(15) << specialization
          << endl;
 }
 
@@ -57,4 +57,5 @@ void Doctor::display() const {
     }
     cout << string(60, '-') << endl;
 }
+
 
