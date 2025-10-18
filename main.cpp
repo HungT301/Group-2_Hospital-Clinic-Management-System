@@ -205,6 +205,7 @@ void menuNurse(vector<Nurse>& nurses) {
 
         } else if (choice == 2) {
             Nurse n;
+            cin.ignore();
             n.nhap();
             nurses.push_back(n);
             cout << "Nurse added successfully!\n";
