@@ -13,7 +13,7 @@ public:
 
 	void nhap();
 	void in() const; // in cac thong tin co ban
-	virtual void display() const; // in schedule cua nurse va doctor
+	void display() const; // in schedule cua nurse va doctor
 
 	string getstaffID() const; // lay ID de tim kiem
 };
