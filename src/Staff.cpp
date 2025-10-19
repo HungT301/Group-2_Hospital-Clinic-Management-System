@@ -8,7 +8,6 @@ Staff::Staff() {}
 
 void Staff::nhap() {
     cout << "Enter ID: ";
-    cin.ignore();
     getline(cin, staffID);
     Person::nhap();
 }
