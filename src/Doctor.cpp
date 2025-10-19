@@ -27,14 +27,8 @@ void Doctor::nhap() {
 }
 
 void Doctor::in() const {
-    cout << left
-         << setw(10) << staffID
-         << setw(20) << name
-         << setw(15) << DOB
-         << setw(15) << gender
-         << setw(15) << phone
-         << setw(15) << specialization
-         << endl;
+    Staff::in();
+    cout << left << setw(15) << specialization << endl;
 }
 
 void Doctor::display() const {

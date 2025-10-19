@@ -35,6 +35,7 @@ void Nurse :: nhap(){
     
 void Nurse :: in() const {
    Staff :: in();
+   cout << endl;
 }
 
 void Nurse :: display() const {
