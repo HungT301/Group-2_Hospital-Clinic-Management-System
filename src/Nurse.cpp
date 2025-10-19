@@ -17,7 +17,7 @@ void Nurse :: nhap(){
   schedule.clear(); 
   
   for (int i = 0; i < numShifts; i++) {
-    SCHEDULES s;
+    NurseSchedule s;
         cout << "\nShift " << i + 1 << ":\n";
 
         cout << "  Enter day: ";

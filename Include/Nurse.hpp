@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-struct SCHEDULES {
+struct NurseSchedule {
     string day;      // Thứ (Monday, Tuesday,...)
     string shifts;    // Ca (morning, evening,...)
     string oncallRooms;     // Phòng trực
@@ -13,7 +13,7 @@ struct SCHEDULES {
 
 class Nurse : public Staff {
 private:
-	vector<SCHEDULES> schedule;
+	vector<NurseSchedule> schedule;
 
 public:
 	Nurse(); // mac dinh bang 0

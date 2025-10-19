@@ -20,7 +20,7 @@ void Doctor::nhap() {
     schedules.clear();
 
     for (int i = 0; i < numSchedules; i++) {
-        SCHEDULES s;
+        DoctorSchedule s;
         cout << "\nSchedule " << i + 1 << ":\n";
 
         cout << "  Enter day: ";
