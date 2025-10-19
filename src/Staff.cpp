@@ -8,6 +8,7 @@ Staff::Staff() {}
 
 void Staff::nhap() {
     cout << "Enter ID: ";
+    cin.ignore();
     getline(cin, staffID);
     Person::nhap();
 }
@@ -22,6 +23,7 @@ void Staff::display() const{}
 string Staff::getstaffID() const {
     return staffID;
 }
+
 
 
 
