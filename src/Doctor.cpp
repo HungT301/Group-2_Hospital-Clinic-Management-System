@@ -26,7 +26,7 @@ void Doctor::nhap() {
         cout << "  Enter day: ";
         getline(cin, s.day);
 
-        cout << "  Enter shift (e.g. Morning/Afternoon/Night): ";
+        cout << "  Enter shift: ";
         getline(cin, s.shifts);
 
         cout << "  Enter consultation room: ";
@@ -50,3 +50,4 @@ void Doctor::display() const {
              << endl;
     }
 }
+
