@@ -7,7 +7,7 @@ using namespace std;
 Doctor::Doctor() {}
 
 void Doctor::nhap() {
-    Staff::nhap();
+    Staff::nhap(); 
 
     cout << "Enter specialization: ";
     getline(cin, specialization);
@@ -18,40 +18,35 @@ void Doctor::nhap() {
     cin.ignore();
 
     schedules.clear();
+
     for (int i = 0; i < numSchedules; i++) {
-        string schedule;
-        cout << "Schedule " << i + 1 << " (e.g. Mon: Morning): ";
-        getline(cin, schedule);
-        schedules.push_back(schedule);
+        SCHEDULES s;
+        cout << "\nSchedule " << i + 1 << ":\n";
+
+        cout << "  Enter day: ";
+        getline(cin, s.day);
+
+        cout << "  Enter shift (e.g. Morning/Afternoon/Night): ";
+        getline(cin, s.shifts);
+
+        cout << "  Enter consultation room: ";
+        getline(cin, s.consultRoom);
+
+        schedules.push_back(s);
     }
 }
 
 void Doctor::in() const {
-    Staff::in();
-    cout << left << setw(15) << specialization << endl;
+    Staff::in(); 
+    cout << left << setw(20) << specialization << endl;
 }
 
 void Doctor::display() const {
-    cout << "\n===== DOCTOR SCHEDULE =====\n";
-    cout << left
-         << setw(10) << staffID
-         << setw(20) << name
-         << setw(20) << specialization
-         << endl;
-
-    if (schedules.empty()) {
-        cout << "   No schedules available.\n";
-    } else {
-        cout << "   Schedules: ";
-        for (int i = 0; i < schedules.size(); i++) {
-            cout << schedules[i];
-            if (i != schedules.size() - 1) cout << ", ";
-        }
-        cout << endl;
+    for (const auto &s : schedules) {
+        cout << left
+             << setw(12) << s.day
+             << setw(15) << s.shifts
+             << setw(15) << s.consultRoom
+             << endl;
     }
-    cout << string(60, '-') << endl;
 }
-
-
-
-
