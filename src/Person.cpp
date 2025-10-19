@@ -8,7 +8,6 @@ Person::Person() {}
 
 void Person::nhap() {
 	cout << "Enter name: ";
-	cin.ignore();
 	getline(cin, name);
 	cout << "Enter date of birth: ";
 	getline(cin, DOB);
