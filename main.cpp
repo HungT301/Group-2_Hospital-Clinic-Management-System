@@ -155,22 +155,26 @@ void menuDoctor(vector<Doctor>& doctors) {
         } else if (choice == 6) {
     string searchID;
     bool found = false;
-
     cout << "Enter Doctor ID to view schedule: ";
     getline(cin, searchID);
 
     for (auto &d : doctors) {
         if (d.getstaffID() == searchID) {
-            cout << "\n===== SCHEDULE OF DOCTOR =====\n";
+            cout << "\n===== DOCTOR SCHEDULE =====\n";
+            cout << left
+                 << setw(12) << "Day"
+                 << setw(15) << "Shift"
+                 << setw(15) << "Consult Room" << endl;
+
+            cout << string(42, '-') << endl;
             d.display();
             found = true;
             break;
         }
     }
 
-    if (!found) cout << "Doctor ID not found!\n";
-}
-    } while (choice != 0);
+    if (!found)
+        cout << "Doctor ID not found!\n";
 }
 
 // Nurse
