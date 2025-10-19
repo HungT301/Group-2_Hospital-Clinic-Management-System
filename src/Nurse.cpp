@@ -46,9 +46,8 @@ void Nurse :: display() const {
              << setw(15) << s.oncallRooms
              << endl;
     }
-
-    cout << string(42, '-') << endl;
 }
+
 
 
 
