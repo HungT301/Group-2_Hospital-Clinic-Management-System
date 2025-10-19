@@ -22,20 +22,20 @@ void Treatment::nhap() {
 void Treatment::in() const {
     cout << left
          << setw(10) << id
-         << setw(10) << patientId
-         << setw(10) << doctorId
+         << setw(15) << patientId
+         << setw(15) << doctorId
          << setw(20) << moTa
          << setw(15) << fixed << setprecision(2) << baseCost;
 }
 
 void Treatment::sumary() const {
     cout << left
-         << setw(10) << treatmentType
+         << setw(15) << treatmentType
          << setw(10) << id
-         << setw(10) << patientId
-         << setw(10) << doctorId
-         << setw(15) << moTa
-         << setw(10) << baseCost << endl;
+         << setw(15) << patientId
+         << setw(15) << doctorId
+         << setw(20) << moTa
+         << setw(15) << baseCost << endl;
 }
 
 string Treatment::getType() const {

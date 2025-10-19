@@ -21,7 +21,7 @@ void CheckupAppointment::in() const {
     Appointment::in();
     cout << left
          << setw(10) << room
-         << setw(10) << purpose << endl;
+         << setw(20) << purpose << endl;
 }
 
 //SurgeryAppointment
@@ -42,9 +42,9 @@ void SurgeryAppointment::nhap() {
 void SurgeryAppointment::in() const {
     Appointment::in();
     cout << left
-         << setw(10) << surgeryType
+         << setw(15) << surgeryType
          << setw(10) << operationRoom
-         << setw(18) << mainSurgeon << endl;
+         << setw(20) << mainSurgeon << endl;
 }
 
 //TherapyAppointment
@@ -66,7 +66,7 @@ void TherapyAppointment::nhap() {
 void TherapyAppointment::in() const {
     Appointment::in();
     cout << left
-         << setw(10) << therapyType
+         << setw(15) << therapyType
          << setw(10) << sessionCount
-         << setw(18) << doctorName << endl;
+         << setw(20) << doctorName << endl;
 }

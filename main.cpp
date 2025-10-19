@@ -80,13 +80,13 @@ void menuDoctor(vector<Doctor>& doctors) {
         if (choice == 1) {
             cout << "\n===== DOCTOR LIST =====\n";
             cout << left
-                 << setw(10) << "ID"
+                 << setw(12) << "ID"
                  << setw(20) << "Name"
                  << setw(15) << "DOB"
-                 << setw(15) << "Gender"
+                 << setw(12) << "Gender"
                  << setw(15) << "Phone"
                  << setw(15) << "Specialty" << endl;
-            cout << string(75, '-') << endl;
+            cout << string(95, '-') << endl;
 
             for (auto &d : doctors) d.in();
 
@@ -106,12 +106,13 @@ void menuDoctor(vector<Doctor>& doctors) {
                 if (d.getstaffID() == searchID) {
                     cout << "\n===== DOCTOR FOUND =====\n";
                     cout << left
-                         << setw(10) << "ID"
+                         << setw(12) << "ID"
                          << setw(20) << "Name"
-                         << setw(15) << "Specialty"
+                         << setw(15) << "DOB"
+                         << setw(12) << "Gender"
                          << setw(15) << "Phone"
                          << setw(15) << "Specialty" << endl;
-                    cout << string(75, '-') << endl;
+                    cout << string(95, '-') << endl;
                     d.in();
                     found = true;
                     break;
@@ -224,7 +225,7 @@ void menuNurse(vector<Nurse>& nurses) {
                     cout << "\n===== NURSE FOUND =====\n";
                     cout << left
                          << setw(10) << "ID"
-                         << setw(28) << "Name"
+                         << setw(20) << "Name"
                          << setw(15) << "DOB"
                          << setw(15) << "Gender"
                          << setw(15) << "Phone" << endl;
@@ -316,7 +317,7 @@ void menuPatient(vector<Patient>& patients) {
                  << setw(10) << "ID"
                  << setw(20) << "Name"
                  << setw(15) << "DOB"
-                 << setw(10) << "Gender"
+                 << setw(15) << "Gender"
                  << setw(15) << "Phone"
                  << setw(20) << "Symptom"
                  << setw(20) << "Diagnosis" << endl;
@@ -404,12 +405,12 @@ void menuAppointment(vector<Appointment*>& appointments) {
         if (choice == 1) {
             cout << "\n===== APPOINTMENT LIST =====\n";
             cout << left
-                 << setw(10) << "Type"
+                 << setw(15) << "Type"
                  << setw(10) << "ID"
-                 << setw(10) << "Patient"
-                 << setw(10) << "Doctor"
-                 << setw(10) << "Time" << endl;
-            cout << string(50, '-') << endl;
+                 << setw(15) << "Patient"
+                 << setw(15) << "Doctor"
+                 << setw(15) << "Time" << endl;
+            cout << string(65, '-') << endl;
 
             for (auto &a : appointments) a->sumary();
         
@@ -417,12 +418,12 @@ void menuAppointment(vector<Appointment*>& appointments) {
             cout << "\n===== CHECKUP APPOINTMENT LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(10) << "Patient"
-                 << setw(10) << "Doctor"
-                 << setw(10) << "Time"
-                 << setw(10) << "room"
-                 << setw(10) << "purpose" << endl;
-            cout << string(60, '-') << endl;
+                 << setw(15) << "Patient"
+                 << setw(15) << "Doctor"
+                 << setw(15) << "Time"
+                 << setw(15) << "room"
+                 << setw(20) << "purpose" << endl;
+            cout << string(90, '-') << endl;
 
             for (auto &a : appointments) {
                 if (a->getType() == "Checkup") a->in();
@@ -431,13 +432,13 @@ void menuAppointment(vector<Appointment*>& appointments) {
             cout << "\n===== SURGERY APPOINTMENT LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(10) << "Patient"
-                 << setw(10) << "Doctor"
-                 << setw(10) << "Time"
-                 << setw(10) << "Type"
-                 << setw(10) << "Room"
-                 << setw(18) << "Surgeon" << endl;
-            cout << string(78, '-') << endl;
+                 << setw(15) << "Patient"
+                 << setw(15) << "Doctor"
+                 << setw(15) << "Time"
+                 << setw(15) << "Type"
+                 << setw(15) << "Room"
+                 << setw(20) << "Surgeon" << endl;
+            cout << string(105, '-') << endl;
 
             for (auto &a : appointments) {
                 if (a->getType() == "Surgery") a->in();
@@ -446,13 +447,13 @@ void menuAppointment(vector<Appointment*>& appointments) {
             cout << "\n===== THERAPY APPOINTMENT LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(10) << "Patient"
-                 << setw(10) << "Doctor"
-                 << setw(10) << "Time"
-                 << setw(10) << "Type"
-                 << setw(10) << "Session"
-                 << setw(18) << "Therapist" << endl;
-            cout << string(78, '-') << endl;
+                 << setw(15) << "Patient"
+                 << setw(15) << "Doctor"
+                 << setw(15) << "Time"
+                 << setw(15) << "Type"
+                 << setw(15) << "Session"
+                 << setw(20) << "Therapist" << endl;
+            cout << string(105, '-') << endl;
 
             for (auto &a : appointments) {
                 if (a->getType() == "Therapy") a->in();
@@ -485,12 +486,12 @@ void menuAppointment(vector<Appointment*>& appointments) {
             for (auto &a : appointments) {
                 if (a->getID() == SearchID) {
                     cout << left
-                         << setw(10) << "Type"
+                         << setw(15) << "Type"
                          << setw(10) << "ID"
-                         << setw(10) << "Patient"
-                         << setw(10) << "Doctor"
-                         << setw(10) << "Time" << endl;
-                    cout << string(50, '-') << endl;
+                         << setw(15) << "Patient"
+                         << setw(15) << "Doctor"
+                         << setw(15) << "Time" << endl;
+                    cout << string(70, '-') << endl;
                     a->sumary();
                     found = true;
                     break;
@@ -540,13 +541,13 @@ void menuTreatment(vector<Treatment*>& treatments) {
         if (choice == 1) {
             cout << "\n===== ALL TREATMENTS =====\n";
             cout << left
-                 << setw(12) << "Type"
+                 << setw(15) << "Type"
                  << setw(10) << "ID"
-                 << setw(12) << "Patient ID"
-                 << setw(12) << "Doctor ID"
-                 << setw(25) << "Description"
-                 << setw(12) << "Base Cost" << endl;
-            cout << string(83, '-') << endl;
+                 << setw(15) << "Patient ID"
+                 << setw(15) << "Doctor ID"
+                 << setw(20) << "Description"
+                 << setw(15) << "Base Cost" << endl;
+            cout << string(90, '-') << endl;
 
             for (auto &t : treatments) t->sumary();
 
@@ -554,13 +555,14 @@ void menuTreatment(vector<Treatment*>& treatments) {
             cout << "\n===== MEDICATION LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(12) << "Patient ID"
-                 << setw(12) << "Doctor ID"
+                 << setw(15) << "Patient ID"
+                 << setw(15) << "Doctor ID"
                  << setw(20) << "Description"
-                 << setw(10) << "Quantity"
+                 << setw(15) << "Base cost"
+                 << setw(15) << "Quantity"
                  << setw(15) << "Price/Unit"
-                 << setw(12) << "Total" << endl;
-            cout << string(91, '-') << endl;
+                 << setw(15) << "Total" << endl;
+            cout << string(110, '-') << endl;
 
             for (auto& t : treatments)
                 if (t->getType() == "Medication") t->in();
@@ -568,13 +570,14 @@ void menuTreatment(vector<Treatment*>& treatments) {
             cout << "\n===== SURGERY LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(12) << "Patient ID"
-                 << setw(12) << "Doctor ID"
+                 << setw(15) << "Patient ID"
+                 << setw(15) << "Doctor ID"
                  << setw(20) << "Description"
+                 << setw(15) << "Base cost"
                  << setw(15) << "Doctor Fee"
                  << setw(15) << "Equip. Cost"
-                 << setw(12) << "Total" << endl;
-            cout << string(96, '-') << endl;
+                 << setw(15) << "Total" << endl;
+            cout << string(120, '-') << endl;
 
             for (auto& t : treatments)
                 if (t->getType() == "Surgery") t->in();
@@ -582,13 +585,14 @@ void menuTreatment(vector<Treatment*>& treatments) {
             cout << "\n===== THERAPY LIST =====\n";
             cout << left
                  << setw(10) << "ID"
-                 << setw(12) << "Patient ID"
-                 << setw(12) << "Doctor ID"
+                 << setw(15) << "Patient ID"
+                 << setw(15) << "Doctor ID"
                  << setw(20) << "Description"
-                 << setw(10) << "Sessions"
-                 << setw(15) << "Price/Session"
-                 << setw(12) << "Total" << endl;
-            cout << string(91, '-') << endl;
+                 << setw(15) << "Base cost"
+                 << setw(15) << "Sessions"
+                 << setw(20) << "Price/Session"
+                 << setw(15) << "Total" << endl;
+            cout << string(125, '-') << endl;
 
             for (auto& t : treatments)
                 if (t->getType() == "Therapy") t->in();
@@ -621,15 +625,14 @@ void menuTreatment(vector<Treatment*>& treatments) {
                 if (t->getID() == searchID) {
                     cout << "\n===== TREATMENT FOUND =====\n";
                     cout << left
-                         << setw(12) << "Type"
+                         << setw(15) << "Type"
                          << setw(10) << "ID"
-                         << setw(12) << "Patient ID"
-                         << setw(12) << "Doctor ID"
-                         << setw(25) << "Description"
-                         << setw(12) << "Base Cost" << endl;
-                    cout << string(83, '-') << endl;
-                    cout << setw(12) << t->getType();
-                    t->in();
+                         << setw(15) << "Patient ID"
+                         << setw(15) << "Doctor ID"
+                         << setw(20) << "Description"
+                         << setw(15) << "Base Cost" << endl;
+                    cout << string(90, '-') << endl;
+                    t->sumary();
                     cout << endl;
                     found = true;
                     break;

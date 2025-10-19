@@ -20,8 +20,8 @@ void Patient::in() const {
     cout << left << setw(10) << patientID;
     Person::in();
     cout << left
-         << setw(10) << symptom
-         << setw(10) << diagnose << endl;
+         << setw(20) << symptom
+         << setw(20) << diagnose << endl;
 }
 
 string Patient::getPatientID() const {

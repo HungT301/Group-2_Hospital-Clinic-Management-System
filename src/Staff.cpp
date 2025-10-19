@@ -14,7 +14,7 @@ void Staff::nhap() {
 
 void Staff::in() const {
     cout << left
-         << setw(15) << staffID;
+         << setw(10) << staffID;
     Person::in();
 }
 void Staff::display() const{}

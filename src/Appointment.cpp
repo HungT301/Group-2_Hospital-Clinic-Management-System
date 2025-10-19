@@ -20,18 +20,18 @@ void Appointment::nhap() {
 void Appointment::in() const {
 	cout << left
 		 << setw(10) << id
-		 << setw(10) << patientId
-		 << setw(10) << doctorId
-		 << setw(10) << thoiGian;
+		 << setw(15) << patientId
+		 << setw(15) << doctorId
+		 << setw(15) << thoiGian;
 }
 
 void Appointment::sumary() const {
 	cout << left
-		 << setw(10) << appointmentType
+		 << setw(15) << appointmentType
 		 << setw(10) << id
-		 << setw(10) << patientId
-		 << setw(10) << doctorId
-		 << setw(10) << thoiGian << endl;
+		 << setw(15) << patientId
+		 << setw(15) << doctorId
+		 << setw(15) << thoiGian << endl;
 }
 
 string Appointment::getType() const {
