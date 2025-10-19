@@ -220,7 +220,7 @@ void menuNurse(vector<Nurse>& nurses) {
                     cout << "\n===== NURSE FOUND =====\n";
                     cout << left
                          << setw(10) << "ID"
-                         << setw(20) << "Name"
+                         << setw(28) << "Name"
                          << setw(15) << "DOB"
                          << setw(15) << "Gender"
                          << setw(15) << "Phone" << endl;
