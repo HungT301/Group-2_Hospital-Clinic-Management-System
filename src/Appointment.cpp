@@ -41,3 +41,21 @@ string Appointment::getType() const {
 string Appointment::getID() const {
 	return id;
 }
+
+json Appointment::toJson() const {
+    return {
+        {"type", appointmentType},
+        {"id", id},
+        {"patientId", patientId},
+        {"doctorId", doctorId},
+        {"time", thoiGian}
+    };
+}
+
+void Appointment::fromJson(const json& j) {
+    appointmentType = j.value("type", "");
+    id = j.value("id", "");
+    patientId = j.value("patientId", "");
+    doctorId = j.value("doctorId", "");
+    thoiGian = j.value("time", "");
+}

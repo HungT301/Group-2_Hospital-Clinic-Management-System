@@ -12,7 +12,7 @@ void Patient::nhap() {
     Person::nhap();
     cout << "Enter symptom: ";
     getline(cin, symptom);
-    cout << "Enter diagnosi: ";
+    cout << "Enter diagnosis: ";
     getline(cin, diagnose);
 }
 
@@ -26,4 +26,26 @@ void Patient::in() const {
 
 string Patient::getPatientID() const {
     return patientID;
+}
+
+json Patient::toJson() const {
+    return {
+        {"id", patientID},
+        {"name", name},
+        {"dob", DOB},
+        {"gender", gender},
+        {"phone", phone},
+        {"symptom", symptom},
+        {"diagnosis", diagnose}
+    };
+}
+
+void Patient::fromJson(const json& j) {
+    patientID = j.value("id", "");
+    name      = j.value("name", "");
+    DOB       = j.value("dob", "");
+    gender    = j.value("gender", "");
+    phone     = j.value("phone", "");
+    symptom   = j.value("symptom", "");
+    diagnose  = j.value("diagnosis", "");
 }

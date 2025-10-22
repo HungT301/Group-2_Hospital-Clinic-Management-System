@@ -16,6 +16,9 @@ public:
     void nhap() override;
     void in() const override;
     double tinhChiPhi() const override;
+
+    json toJson() const override;
+    void fromJson(const json& j) override;
 };
 
 // ---------------- Surgery ----------------
@@ -30,6 +33,9 @@ public:
     void nhap() override;
     void in() const override;
     double tinhChiPhi() const override;
+
+    json toJson() const override;
+    void fromJson(const json& j) override;
 };
 
 // ---------------- Therapy ----------------
@@ -44,6 +50,9 @@ public:
     void nhap() override;
     void in() const override;
     double tinhChiPhi() const override;
+
+    json toJson() const override;
+    void fromJson(const json& j) override;
 };
 
 #endif

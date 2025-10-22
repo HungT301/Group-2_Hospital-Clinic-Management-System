@@ -2,6 +2,8 @@
 #define APPOINTMENT_HPP
 
 #include <string>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 using namespace std;
 
 class Appointment {
@@ -23,6 +25,9 @@ public:
 	string getID() const;
 
 	virtual ~Appointment() {}
+
+	virtual json toJson() const;
+    virtual void fromJson(const json& j);
 };
 
 #endif

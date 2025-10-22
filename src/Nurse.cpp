@@ -48,15 +48,41 @@ void Nurse :: display() const {
     }
 }
 
+json Nurse::toJson() const {
+    json jSchedule = json::array();
+    for (const auto& s : schedule) {
+        jSchedule.push_back({
+            {"day", s.day},
+            {"shift", s.shifts},
+            {"oncallRoom", s.oncallRooms}
+        });
+    }
 
+    return {
+        {"id", staffID},      
+        {"name", name},
+        {"dob", DOB},
+        {"gender", gender},
+        {"phone", phone},
+        {"schedule", jSchedule}
+    };
+}
 
+void Nurse::fromJson(const json& j) {
+    staffID   = j.value("id", "");
+    name      = j.value("name", "");
+    DOB       = j.value("dob", "");
+    gender    = j.value("gender", "");
+    phone     = j.value("phone", "");
 
-
-
-
-
-
-
-
-
-
+    schedule.clear();
+    if (j.contains("schedule")) {
+        for (auto& s : j["schedule"]) {
+            NurseSchedule n;
+            n.day = s.value("day", "");
+            n.shifts = s.value("shift", "");
+            n.oncallRooms = s.value("oncallRoom", "");
+            schedule.push_back(n);
+        }
+    }
+}

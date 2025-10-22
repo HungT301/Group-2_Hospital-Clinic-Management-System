@@ -51,3 +51,43 @@ void Doctor::display() const {
     }
 }
 
+json Doctor::toJson() const {
+    json jSchedules = json::array();
+    for (const auto& s : schedules) {
+        jSchedules.push_back({
+            {"day", s.day},
+            {"shift", s.shifts},
+            {"consultRoom", s.consultRoom}
+        });
+    }
+
+    return {
+        {"id", staffID},        
+        {"name", name},
+        {"dob", DOB},
+        {"gender", gender},
+        {"phone", phone},
+        {"specialization", specialization},
+        {"schedules", jSchedules}
+    };
+}
+
+void Doctor::fromJson(const json& j) {
+    staffID       = j.value("id", "");
+    name          = j.value("name", "");
+    DOB           = j.value("dob", "");
+    gender        = j.value("gender", "");
+    phone         = j.value("phone", "");
+    specialization = j.value("specialization", "");
+
+    schedules.clear();
+    if (j.contains("schedules")) {
+        for (auto& s : j["schedules"]) {
+            DoctorSchedule d;
+            d.day = s.value("day", "");
+            d.shifts = s.value("shift", "");
+            d.consultRoom = s.value("consultRoom", "");
+            schedules.push_back(d);
+        }
+    }
+}

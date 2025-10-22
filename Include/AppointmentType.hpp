@@ -15,6 +15,9 @@ public:
 
     void nhap() override;
     void in() const override;
+
+    json toJson() const override;
+    void fromJson(const json& j) override;
 };
 
 // --------------------- SurgeryAppointment ---------------------
@@ -29,6 +32,9 @@ public:
 
     void nhap() override;
     void in() const override;
+
+    json toJson() const override;
+    void fromJson(const json& j) override;
 };
 
 // --------------------- TherapyAppointment ---------------------
@@ -43,6 +49,9 @@ public:
 
     void nhap() override;
     void in() const override;
+
+    json toJson() const override;
+    void fromJson(const json& j) override;
 };
 
 #endif

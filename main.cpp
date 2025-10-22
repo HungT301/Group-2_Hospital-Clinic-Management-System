@@ -1,5 +1,8 @@
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+#include <nlohmann/json.hpp>
+#include <filesystem>
 #include "Person.hpp"
 #include "Staff.hpp"
 #include "Doctor.hpp"
@@ -10,6 +13,8 @@
 #include "Treatment.hpp"
 #include "TreatmentType.hpp"
 using namespace std;
+using json = nlohmann::json;
+namespace fs = std::filesystem;
 
 // Menu function
 void menuDoctor(vector<Doctor>& doctors);
@@ -20,6 +25,9 @@ void menuTreatment(vector<Treatment*>& treatments);
 
 // Main
 int main() {
+    if (!fs::exists("data")) {
+        fs::create_directory("data");
+    }
 
     vector<Doctor> doctors;
     vector<Nurse> nurses;
@@ -63,6 +71,18 @@ int main() {
 // Doctor
 void menuDoctor(vector<Doctor>& doctors) {
     int choice;
+
+    ifstream fin("data/doctors.json");
+    if (fin && fin.peek() != ifstream::traits_type::eof()) {
+        json j;
+        fin >> j;
+        for (auto& item : j) {
+            Doctor d;
+            d.fromJson(item);
+            doctors.push_back(d);
+        }
+        fin.close();
+    }
 
     do {
         cout << "\n===== DOCTOR MANAGEMENT MENU =====\n";
@@ -176,11 +196,30 @@ void menuDoctor(vector<Doctor>& doctors) {
         }
 
     } while (choice != 0);
+
+    json j;
+    for (auto& d : doctors)
+        j.push_back(d.toJson());
+    ofstream fout("data/doctors.json", ios::out | ios::trunc);
+    fout << setw(4) << j.dump(4);
+    fout.close();
 }
 
 // Nurse
 void menuNurse(vector<Nurse>& nurses) {
     int choice;
+
+    ifstream fin("data/nurses.json");
+    if (fin && fin.peek() != ifstream::traits_type::eof()) {
+        json j;
+        fin >> j;
+        for (auto& item : j) {
+            Nurse n;
+            n.fromJson(item);
+            nurses.push_back(n);
+        }
+        fin.close();
+    }
 
     do {
         cout << "\n===== NURSE MANAGEMENT MENU =====\n";
@@ -294,11 +333,32 @@ void menuNurse(vector<Nurse>& nurses) {
         }
 
     } while (choice != 0);
+
+    json j;
+    for (auto& n : nurses)
+        j.push_back(n.toJson());
+    ofstream fout("data/nurses.json", ios::out | ios::trunc);
+    fout << setw(4) << j.dump(4);
+    fout.close();
 }
+
 // Patient
 void menuPatient(vector<Patient>& patients) {
     int choice;
     
+    ifstream fin("data/patients.json");
+    if (fin) {
+        json j;
+        fin >> j;
+        for (auto& item : j)
+            if (!item.is_null()) {
+                Patient p;
+                p.fromJson(item);
+                patients.push_back(p);
+            }
+        fin.close();
+    }
+
     do {
         cout << "\n===== PATIENT MANAGEMENT MENU =====\n";
         cout << "1. Patient list\n";
@@ -382,11 +442,36 @@ void menuPatient(vector<Patient>& patients) {
         }
 
     } while (choice != 0);
+
+    json j;
+    for (auto& p : patients)
+        j.push_back(p.toJson());
+    ofstream fout("data/patients.json");
+    fout << setw(4) << j; 
+    fout.close();
 }
 
 // Appointment
 void menuAppointment(vector<Appointment*>& appointments) {
     int choice;
+
+    ifstream fin("data/appointments.json");
+    if (fin && fin.peek() != ifstream::traits_type::eof()) {
+        json j;
+        fin >> j;
+        for (auto& item : j) {
+            string type = item.value("type", "");
+            Appointment* a = nullptr;
+            if (type == "Checkup") a = new CheckupAppointment();
+            else if (type == "Surgery") a = new SurgeryAppointment();
+            else if (type == "Therapy") a = new TherapyAppointment();
+            else continue;
+
+            a->fromJson(item);
+            appointments.push_back(a);
+        }
+        fin.close();
+    }
 
     do {
         cout << "\n===== APPOINTMENT MENU =====\n";
@@ -518,11 +603,37 @@ void menuAppointment(vector<Appointment*>& appointments) {
         }
 
     } while (choice != 0);
+
+    json j;
+    for (auto& a : appointments)
+        j.push_back(a->toJson());
+    ofstream fout("data/appointments.json", ios::out | ios::trunc);
+    fout << setw(4) << j.dump(4);
+    fout.close();
 }
 
 //Treatment
 void menuTreatment(vector<Treatment*>& treatments) {
     int choice;
+
+    ifstream fin("data/treatments.json");
+    if (fin) {
+        json j; fin >> j;
+        for (auto& item : j) {
+            string type = item.value("type", "");
+            Treatment* t = nullptr;
+
+            if (type == "Medication") t = new Medication();
+            else if (type == "Surgery") t = new Surgery();
+            else if (type == "Therapy") t = new Therapy();
+
+            if (t) {
+                t->fromJson(item);
+                treatments.push_back(t);
+            }
+        }
+    fin.close();
+    }
 
     do {
         cout << "\n===== TREATMENT MANAGEMENT MENU =====\n";
@@ -659,4 +770,12 @@ void menuTreatment(vector<Treatment*>& treatments) {
         }
 
     } while (choice != 0);
+
+    json j;
+    for (auto& t : treatments)
+        j.push_back(t->toJson());
+
+    ofstream fout("data/treatments.json");
+    fout << setw(4) << j;
+    fout.close();
 }

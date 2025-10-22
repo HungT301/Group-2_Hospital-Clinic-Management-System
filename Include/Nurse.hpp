@@ -3,6 +3,8 @@
 
 #include <Staff.hpp>
 #include <vector>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 using namespace std;
 
 struct NurseSchedule {
@@ -22,6 +24,8 @@ public:
 	void in() const;
 	void display() const;
 
+	json toJson() const;
+    void fromJson(const json& j);
 };
 
 #endif

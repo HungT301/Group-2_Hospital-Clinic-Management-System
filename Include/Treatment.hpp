@@ -2,6 +2,8 @@
 #define TREATMENT_HPP
 
 #include <string>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 using namespace std;
 
 class Treatment {
@@ -25,6 +27,9 @@ public:
 	string getID() const;
 
 	virtual ~Treatment() {}
+
+	virtual json toJson() const;    
+    virtual void fromJson(const json& j); 
 };
 
 #endif

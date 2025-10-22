@@ -50,3 +50,22 @@ double Treatment::tinhChiPhi() const {
     return baseCost;
 }
 
+json Treatment::toJson() const {
+    return {
+        {"type", treatmentType},
+        {"id", id},
+        {"patientId", patientId},
+        {"doctorId", doctorId},
+        {"description", moTa},
+        {"baseCost", baseCost}
+    };
+}
+
+void Treatment::fromJson(const json& j) {
+    treatmentType = j.value("type", "");
+    id = j.value("id", "");
+    patientId = j.value("patientId", "");
+    doctorId = j.value("doctorId", "");
+    moTa = j.value("description", "");
+    baseCost = j.value("baseCost", 0.0);
+}
