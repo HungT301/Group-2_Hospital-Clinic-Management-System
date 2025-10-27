@@ -32,3 +32,18 @@ Tương tự với các phần khác như quản lý y tá, đặt lịch hẹn.
 thì cứ chỉnh sửa rồi gửi lên nhóm, đồng thuận thêm thì sẽ thêm hay những phần nào
 ko hợp lý thì có thể xóa. 
 
+
+Person (abstract)
+ ├── Staff
+ │    ├── Doctor
+ │    └── Nurse
+ └── Patient
+ Appointment
+ ├── CheckupAppointment
+ └── SurgeryAppointment
+TreatmentType
+ ├── Medication
+ ├── SurgeryTreatment
+ └── Therapy
+
+
