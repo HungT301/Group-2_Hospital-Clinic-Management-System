@@ -33,17 +33,25 @@ thì cứ chỉnh sửa rồi gửi lên nhóm, đồng thuận thêm thì sẽ 
 ko hợp lý thì có thể xóa. 
 
 
+
+## 🧩 Class Diagram (Text-based)
+
+```text
 Person (abstract)
  ├── Staff
  │    ├── Doctor
  │    └── Nurse
  └── Patient
- Appointment
+
+Appointment
  ├── CheckupAppointment
+ ├── TherapyAppointment
  └── SurgeryAppointment
+
 TreatmentType
  ├── Medication
  ├── SurgeryTreatment
  └── Therapy
+
 
 
