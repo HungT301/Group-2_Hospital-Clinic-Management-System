@@ -34,7 +34,7 @@ ko hợp lý thì có thể xóa.
 
 
 
-## 🧩 Class Diagram (Text-based)
+## 🧩 Class Diagram 
 
 ```text
 Person (abstract)
